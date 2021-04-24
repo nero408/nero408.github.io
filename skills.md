@@ -15,11 +15,7 @@ Here is a short summary about programming languages and frameworks I am familiar
 
 /* Container for skill bars */
 .skillContainer {
-  border-radius: 40px;
   padding: 30px;
-  border: 4px solid black;
-  box-shadow: 5px 5px 5px black;
-  background-color: #cfcfcf;
 }
 
 /* skill bars */
@@ -38,16 +34,33 @@ Here is a short summary about programming languages and frameworks I am familiar
   text-align: right; /* Right-align text */
   padding-right: 0px;
   margin: 0px;
+  z-index: 10;
+  opacity: 0.6;
   margin-top: 10px; /* Add top padding */
   margin-bottom: 10px; /* Add bottom padding */
   color: white; /* White text color */
+  cursor: pointer;
+}
+.skills:hover {
+  opacity: 1;
 }
 
 .skillIcon {
+  cursor: pointer;
   object-fit: contain;
   margin: 0px;
+  z-index: 20;
   margin-left: -25px;
   height: 100%;
+}
+
+.skillExplanation {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
 }
 
 .nodejs {width: 90%; background-color: #026e00;} 
@@ -56,10 +69,28 @@ Here is a short summary about programming languages and frameworks I am familiar
 .docker {width: 80%; background-color: #2496ed;} 
 .kubernetes {width: 40%; background-color: #3371e3;} 
 </style>
+<script>
+var coll = document.getElementsByClassName("skillBar");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
 <div class="skillContainer">
   <div class="skillBar">
     <div class="skills nodejs"></div>
     <img alt="nodejs" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/nodejs.jpg">
+  </div>
+  <div class="skillExplanation">
+  <p>Lorem ipsum...</p>
   </div>
 
   <div class="skillBar">
@@ -67,15 +98,15 @@ Here is a short summary about programming languages and frameworks I am familiar
   </div>
 
   <div class="skillBar">
-    <div class="skills nestjs">90%</div><img alt="nestjs" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/nestjs.svg">
+    <div class="skills nestjs"></div><img alt="nestjs" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/nestjs.svg">
   </div>
 
   <div class="skillBar">
-    <div class="skills docker">80%</div><img alt="docker" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/docker.png">
+    <div class="skills docker"></div><img alt="docker" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/docker.png">
   </div>
 
   <div class="skillBar">
-    <div class="skills kubernetes">40%</div><img alt="kubernetes" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/kubernetes.png">
+    <div class="skills kubernetes"></div><img alt="kubernetes" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/kubernetes.png">
   </div>
 </div>
 
