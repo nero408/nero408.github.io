@@ -14,43 +14,69 @@ Here is a short summary about programming languages and frameworks I am familiar
 * {box-sizing:border-box}
 
 /* Container for skill bars */
-.container {
+.skillContainer {
+  border-radius: 40px;
+  padding: 30px;
+  border: 4px solid black;
+  box-shadow: 5px 5px 5px black;
+  background-color: #cfcfcf;
+}
+
+/* skill bars */
+.skillBar {
   width: 100%; /* Full width */
-  background-color: #ddd; /* Grey background */
+  padding-right: 0px;
+  padding-left: 0px;
+  height: 50px;
+  margin-bottom:10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .skills {
+  height: 30px;
   text-align: right; /* Right-align text */
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
+  padding-right: 0px;
+  margin: 0px;
+  margin-top: 10px; /* Add top padding */
+  margin-bottom: 10px; /* Add bottom padding */
   color: white; /* White text color */
-  align-items: flex-end;
 }
 
-.nodejs {width: 90%; background-color: #4CAF50;} /* Green */
-.python {width: 60%; background-color: #2196F3;} /* Blue */
-.nestjs {width: 90%; background-color: #f44336;} /* Red */
-.docker {width: 80%; background-color: #808080;} /* Dark Grey */
-.kubernetes {width: 40%; background-color: #808080;} /* Dark Grey */
+.skillIcon {
+  object-fit: contain;
+  margin: 0px;
+  margin-left: -25px;
+  height: 100%;
+}
+
+.nodejs {width: 90%; background-color: #026e00;} 
+.python {width: 60%; background-color: #3776ab;} 
+.nestjs {width: 90%; background-color: #ea2845;} 
+.docker {width: 80%; background-color: #2496ed;} 
+.kubernetes {width: 40%; background-color: #3371e3;} 
 </style>
-<div class="container">
-  <div class="skills nodejs"><img alt="nodejs" width="90" height="90" style="object-fit: contain;" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/nodejs.jpg"></div>
-</div>
+<div class="skillContainer">
+  <div class="skillBar">
+    <div class="skills nodejs"></div>
+    <img alt="nodejs" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/nodejs.jpg">
+  </div>
 
-<div class="container">
-  <div class="skills python">60%</div>
-</div>
+  <div class="skillBar">
+    <div class="skills python"></div><img alt="python" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/python.png">
+  </div>
 
-<div class="container">
-  <div class="skills nestjs">90%</div>
-</div>
+  <div class="skillBar">
+    <div class="skills nestjs">90%</div><img alt="nestjs" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/nestjs.svg">
+  </div>
 
-<div class="container">
-  <div class="skills docker">80%</div>
-</div>
+  <div class="skillBar">
+    <div class="skills docker">80%</div><img alt="docker" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/docker.png">
+  </div>
 
-<div class="container">
-  <div class="skills kubernetes">40%</div>
+  <div class="skillBar">
+    <div class="skills kubernetes">40%</div><img alt="kubernetes" width="50" height="50" class="skillIcon" src="https://github.com/nero408/nero408.github.io/raw/master/assets/img/skills/kubernetes.png">
+  </div>
 </div>
 
 
