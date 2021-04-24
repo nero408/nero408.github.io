@@ -1,15 +1,12 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Who is this guy?
 ---
 
-My name is Jan-Eric Gaidusch. I have the following qualities:
+My name is Jan-Eric Gaidusch. 
 
-- I rock a great mustache
-- I'm extremely loyal to my family
-
-What else do you need?
+On this page i give you some insights about my career and private life.
 
 ### my history
 
