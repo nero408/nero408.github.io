@@ -1,22 +1,19 @@
 # --- Basic options --- #
 
 # Name of website
-title: My website
+title: Jani's Blog
 
 # Short description of your site
-description: A virtual proof that I'm awesome
+description: Random blog posts and information about my career
 
 # Your name to show in the footer
-author: Some Person
+author: Jan-Eric Gaidusch
 
 # --- List of links in the navigation bar --- #
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Skills: "skills"
 
 # --- Logo --- #
 
@@ -29,7 +26,7 @@ round-avatar: true
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
-#title-img: /path/to/image
+title-img: "/assets/img/background.png"
 
 
 # --- Footer options --- #
@@ -38,17 +35,17 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 # If you don't want to show a link to an RSS feed, set rss to "false".
 social-network-links:
-  email: "someone@example.com"
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
+  email: "je.gaidusch@gmx.de"
+  facebook: janigaid
+  github: nero408
+  twitter: JGaidusch
   rss: true
 #  reddit: yourname
-#  linkedin: daattali
-#  xing: yourname
+  linkedin: jan-eric-gaidusch-626b98185
+  xing: JanEric_Gaidusch
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
-#  instagram: deanat78
+  instagram: jani.ga
 #  youtube: user/deanat78
 #  spotify: yourname
 #  telephone: +14159998888
@@ -72,7 +69,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
+url-pretty: "jani.gaidus.ch"
 
 # Create a "tags" index page and make tags on each post clickable
 link-tags: true
