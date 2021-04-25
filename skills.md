@@ -1,13 +1,14 @@
 ---
 layout: page
 title: Skills
-subtitle: My programming skills
+subtitle: Jani's coding skills
 cover-img:
 - "/assets/img/programming.png"
 ---
 
 Here is a short summary about programming languages and frameworks I am familiar with!
 
+## Main Skills
 
 <style>
 /* Make sure that padding behaves as expected */
@@ -84,5 +85,15 @@ Here is a short summary about programming languages and frameworks I am familiar
   </div>
 </div>
 
-
+## Honorable Mentions
+* JavaScript
+* Java
+* Rasa (Open Source NLU Framework)
+* React
+* Angular
+* HTML & CSS
+* GIT
+* CI/CD with Github Actions & Gitlab
+* R
+* LaTeX
 
