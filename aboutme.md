@@ -1,14 +1,14 @@
 ---
 layout: page
 title: About Me
-subtitle: Software Engineer | AI Specialist | Technology Leader
+subtitle: Software Engineer | AI Enthusiast
 ---
 
 <div class="about-intro">
   <div class="intro-content">
     <h2>Hello! I'm Jan-Eric Gaidusch 👋</h2>
     <p class="intro-text">
-      I'm a passionate <strong>Senior Software Engineer</strong> with over <strong>8 years of hands-on experience</strong> in software development and IT operations across multiple industries. Currently, I'm building the future of conversational AI at <strong>Parloa GmbH</strong> in Berlin, where I design and implement cutting-edge AI solutions that transform customer service.
+      I'm a passionate <strong>Senior Software Engineer</strong> with over <strong>8 years of hands-on experience</strong> in software development and IT operations across multiple industries. Currently, I'm working on conversational AI at <strong>Parloa GmbH</strong> in Berlin, where I design and implement AI solutions for customer service.
     </p>
   </div>
 </div>
@@ -19,7 +19,7 @@ subtitle: Software Engineer | AI Specialist | Technology Leader
     <div class="expertise-card">
       <div class="expertise-icon">🤖</div>
       <h3>AI & Machine Learning</h3>
-      <p>Building RAG (Retrieval-Augmented Generation) systems, working with Large Language Models, and creating intelligent conversational AI platforms that power enterprise customer service</p>
+      <p>Working with RAG (Retrieval-Augmented Generation) systems, Large Language Models, and conversational AI platforms for enterprise customer service</p>
     </div>
     <div class="expertise-card">
       <div class="expertise-icon">⚙️</div>
@@ -33,8 +33,8 @@ subtitle: Software Engineer | AI Specialist | Technology Leader
     </div>
     <div class="expertise-card">
       <div class="expertise-icon">👥</div>
-      <h3>Technical Leadership</h3>
-      <p>Mentoring engineers, building high-performing teams, driving architectural decisions, and fostering a culture of continuous improvement</p>
+      <h3>Team Collaboration</h3>
+      <p>Contributing to team growth, supporting fellow engineers, participating in architectural discussions, and promoting continuous learning</p>
     </div>
   </div>
 </div>
@@ -48,7 +48,7 @@ subtitle: Software Engineer | AI Specialist | Technology Leader
       <div class="journey-period">2023 - Present</div>
       <div class="journey-details">
         <h4>Parloa GmbH</h4>
-        <p>Leading backend development for conversational AI platforms, building RAG systems and agent management solutions</p>
+        <p>Contributing to backend development for conversational AI platforms, working on RAG systems and agent management solutions</p>
       </div>
     </div>
 
@@ -56,7 +56,7 @@ subtitle: Software Engineer | AI Specialist | Technology Leader
       <div class="journey-period">2021 - 2023</div>
       <div class="journey-details">
         <h4>Kauz GmbH</h4>
-        <p>Head of Engineering, transforming chatbot infrastructure with cloud-native Kubernetes architecture</p>
+        <p>Head of Engineering, working on chatbot infrastructure with cloud-native Kubernetes architecture</p>
       </div>
     </div>
 
@@ -64,7 +64,7 @@ subtitle: Software Engineer | AI Specialist | Technology Leader
       <div class="journey-period">2019 - 2021</div>
       <div class="journey-details">
         <h4>Neohelden GmbH</h4>
-        <p>Building self-learning AI assistants, integrating speech technologies and multiple NLU platforms</p>
+        <p>Working on self-learning AI assistants, integrating speech technologies and multiple NLU platforms</p>
       </div>
     </div>
 
