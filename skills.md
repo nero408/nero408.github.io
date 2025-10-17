@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Technical Skills
-subtitle: My Technology Stack & Expertise
+subtitle: My Technology Stack & Experience
 ---
 
 <div class="skills-intro">
-  <p>Throughout my 8+ years in software engineering, I've built expertise across a wide range of technologies, from AI/ML systems to cloud infrastructure. Here's my current technology stack:</p>
+  <p>Throughout my 8+ years in software engineering, I've gained solid experience across a wide range of technologies, from AI/ML systems to cloud infrastructure. Here's my current technology stack:</p>
 </div>
 
 <div class="skills-container">
@@ -19,11 +19,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card featured">
         <div class="skill-header">
           <h3>TypeScript</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Primary language for backend and frontend development. Building scalable enterprise applications with type safety.</p>
@@ -66,11 +66,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card featured">
         <div class="skill-header">
           <h3>NestJS</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Building scalable, enterprise-grade backend applications with TypeScript and dependency injection.</p>
@@ -79,11 +79,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card featured">
         <div class="skill-header">
           <h3>FastAPI</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">High-performance Python APIs for AI/ML services with automatic API documentation.</p>
@@ -126,11 +126,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card featured ai-card">
         <div class="skill-header">
           <h3>RAG Systems</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Retrieval-Augmented Generation architecture for AI applications with vector databases and semantic search.</p>
@@ -139,11 +139,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card featured ai-card">
         <div class="skill-header">
           <h3>Large Language Models</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Building and integrating LLM-powered solutions with prompt engineering and fine-tuning.</p>
@@ -152,11 +152,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card ai-card">
         <div class="skill-header">
           <h3>NLU Engines</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Natural Language Understanding systems for intent recognition and entity extraction.</p>
@@ -186,11 +186,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card featured devops-card">
         <div class="skill-header">
           <h3>Kubernetes</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Container orchestration and cloud-native deployments with custom resources and operators.</p>
@@ -199,11 +199,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card featured devops-card">
         <div class="skill-header">
           <h3>Helm Charts</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Kubernetes package management and deployment automation with templating and versioning.</p>
@@ -225,11 +225,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card devops-card">
         <div class="skill-header">
           <h3>Docker</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Containerization and microservices with multi-stage builds and optimization.</p>
@@ -246,11 +246,11 @@ subtitle: My Technology Stack & Expertise
       <div class="skill-card cloud-card">
         <div class="skill-header">
           <h3>Microsoft Azure</h3>
-          <span class="skill-badge expert">Expert</span>
+          <span class="skill-badge advanced">Proficient</span>
         </div>
         <div class="skill-level">
           <div class="skill-bar">
-            <div class="skill-progress expert"></div>
+            <div class="skill-progress advanced"></div>
           </div>
         </div>
         <p class="skill-description">Azure services, AKS, and cloud architecture with extensive production experience.</p>
