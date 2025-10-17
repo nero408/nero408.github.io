@@ -1,0 +1,165 @@
+{
+  "basics": {
+    "name": "Jan-Eric Gaidusch",
+    "label": "Software Engineer",
+    "email": "je.gaidusch@gmx.de",
+    "phone": "+49 176 24652803",
+    "picture": "file://~/coding/github/cv/Passbild.jpg",
+    "summary": "Passionate software engineer with 8+ years of hands-on software development and IT operations experience across several industries. Seeking new challenges to build exceptional technology products.",
+    "location": {
+      "city": "Pfaffenrot",
+      "countryCode": "DE",
+      "region": "BW",
+      "address": "Reitzheckweg 2"
+    }
+  },
+  "work": [
+    {
+      "name": "Parloa GmbH",
+      "position": "Senior Backend Engineer",
+      "location": "Berlin, Germany (Remote)",
+      "url": "https://parloa.com",
+      "startDate": "2023-05-01",
+      "endDate": "",
+      "summary": "Parloa is a conversational AI company that provides a platform to manage AI agents for customer service - enabling enterprises to automate and improve customer interactions across voice, chat, email etc.",
+      "highlights": [
+        "Designed and implemented a Retrieval-Augmented Generation (RAG) product powering AI agents in customer service use cases",
+        "Built the foundation of the Agent Management Platform, enabling scalable creation and management of AI agents",
+        "Contributed to growing the engineering team by supporting interviews, onboarding and mentoring",
+        "Redesigned and rebuilt the Conversational Platform architecture (channels: SIP, WebSocket, REST; audio pipeline: STT, TTS, VAD) into a robust, message-driven system reducing latency and improving scalability"
+      ]
+    },
+    {
+      "name": "ProductionToGo GmbH",
+      "position": "Bereichsleiter Software",
+      "location": "Ittersbach, Germany",
+      "url": "https://production-to-go.com",
+      "startDate": "2023-02-01",
+      "endDate": "2023-04-30",
+      "summary": "ProductionToGo GmbH is a full-service provider in the industrial 3D printing sector. They sell 3D printing hardware and software and perform printing services.",
+      "highlights": [
+        "Designed the foundation of a platform to evaluate 3D printer settings across different parameters and inputs.",
+        "Contributed to software development in an industrial 3D printing environment"
+      ]
+    },
+    {
+      "name": "Kauz GmbH",
+      "position": "Head of Engineering",
+      "location": "Düsseldorf, Germany (Remote)",
+      "url": "https://kauz.net",
+      "startDate": "2021-07-01",
+      "endDate": "2023-01-31",
+      "summary": "Kauz develops linguistic-based Chatbots. With their NLU-Engine, Kauz improves the service quality and provides constant availability for customers and employees.",
+      "highlights": [
+        "Consolidated and migrated the operations landscape by introducing a cloud-agnostic Kubernetes-oriented approach.",
+        "Introduced a new architecture to enable better stability and scalability of the existing product."
+      ]
+    },
+    {
+      "name": "Neohelden GmbH",
+      "position": "Senior Full Stack Engineer",
+      "location": "Karlsruhe, Germany",
+      "url": "https://www.linkedin.com/company/neohelden/",
+      "startDate": "2019-07-31",
+      "endDate": "2021-07-31",
+      "summary": "Neohelden develops Neo, a self-learning AI assistant for businesses that can be used via voice and chat. Neo automates processes, increases operational efficiency, and levels up the user experience.",
+      "highlights": [
+        "Migrated and reimplemented a NodeJS backend application from FeathersJS to NestJS",
+        "Integrated Speech To Text and Text To Speech technologies as microservices",
+        "Developed and maintained a python SDK",
+        "Integrated support for multiple NLU Technologies into the core application",
+        "Introduced kubernetes compatibility with helm charts",
+        "Maintained and optimized development automations with Gitlab CI and Github Actions"
+      ]
+    },
+    {
+      "name": "Fiducia & GAD IT AG",
+      "position": "Software Engineer",
+      "location": "Karlsruhe, Germany",
+      "endDate": "2019-06-30",
+      "startDate": "2014-09-30",
+      "summary": "Fiducia & GAD IT AG (now called Atruvia) is the main it service provider for the Volksbanken in Germany. They focus on developing and providing banking software.",
+      "highlights": [
+        "Developed & Maintained a middle layer application to manage and execute BI reports on mainframe machines"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Freizeit Aktiv e.V.",
+      "position": "Managing Committee",
+      "website": "https://freizeitaktiv.net",
+      "startDate": "2015-09-30",
+      "endDate": "",
+      "summary": "Freizeit Aktiv e.V. is club offering its members multiple options to do sports and is also participating in the local carnival.",
+      "highlights": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "Baden-Wuerttemberg Cooperative State University (DHBW)",
+      "area": "Applied Informatics",
+      "studyType": "Bachelor of Science (B.Sc.)",
+      "startDate": "2014-10-01",
+      "endDate": "2017-09-30",
+      "gpa": "",
+      "courses": []
+    },
+    {
+      "institution": "Albert-Einstein-Schule Ettlingen",
+      "area": "Information Technology",
+      "studyType": "General Qualification for University Entrance",
+      "startDate": "2011-09-01",
+      "endDate": "2014-09-30",
+      "gpa": "",
+      "courses": []
+    }
+  ],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": ["TypeScript", "Python", "Java"]
+    },
+    {
+      "name": "Frameworks",
+      "keywords": ["React", "NestJS", "FastAPI", "RxJS"]
+    },
+    {
+      "name": "DevOps",
+      "keywords": ["Kubernetes", "Helm charts", "Terraform"]
+    },
+    {
+      "name": "Technologies",
+      "keywords": ["RAG", "NATS", "Large Language Models"]
+    },
+    {
+      "name": "Cloud",
+      "keywords": ["Microsoft Azure", "Amazon Web Services"]
+    },
+    {
+      "name": "Tools",
+      "keywords": ["Cursor", "VSCode", "Jira", "Asana", "Slack"]
+    }
+  ],
+  "languages": [
+    {
+      "fluency": "Fluent",
+      "language": "English"
+    },
+    {
+      "fluency": "Native Speaker",
+      "language": "German"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Horse Riding"
+    },
+    {
+      "name": "Farming"
+    }
+  ],
+  "references": []
+}
