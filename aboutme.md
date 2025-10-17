@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-subtitle: Software Engineer | AI Enthusiast | Team Contributor
+subtitle: Software Engineer | AI Enthusiast
 ---
 
 <div class="about-intro">
