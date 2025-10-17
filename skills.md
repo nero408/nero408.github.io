@@ -8,283 +8,291 @@ subtitle: My Technology Stack & Expertise
   <p>Throughout my 8+ years in software engineering, I've built expertise across a wide range of technologies, from AI/ML systems to cloud infrastructure. Here's my current technology stack:</p>
 </div>
 
-## Programming Languages
+<div class="skills-container">
 
-<div class="skills-grid">
-  <div class="skill-card featured">
-    <div class="skill-header">
-      <div class="skill-icon">💻</div>
-      <h3>TypeScript</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
+  <div class="skill-section">
+    <h2 class="section-title">
+      <span class="section-icon">💻</span>
+      Programming Languages
+    </h2>
+    <div class="skills-grid">
+      <div class="skill-card featured">
+        <div class="skill-header">
+          <h3>TypeScript</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Primary language for backend and frontend development. Building scalable enterprise applications with type safety.</p>
       </div>
-      <span class="skill-label">Expert</span>
+
+      <div class="skill-card featured">
+        <div class="skill-header">
+          <h3>Python</h3>
+          <span class="skill-badge advanced">Advanced</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress advanced"></div>
+          </div>
+        </div>
+        <p class="skill-description">AI/ML development, data processing, and automation. Building intelligent systems and APIs.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <h3>Java</h3>
+          <span class="skill-badge advanced">Advanced</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress advanced"></div>
+          </div>
+        </div>
+        <p class="skill-description">Enterprise applications and backend systems. Solid foundation in OOP and design patterns.</p>
+      </div>
     </div>
-    <p class="skill-description">Primary language for backend and frontend development</p>
   </div>
 
-  <div class="skill-card featured">
-    <div class="skill-header">
-      <div class="skill-icon">🐍</div>
-      <h3>Python</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress advanced"></div>
+  <div class="skill-section">
+    <h2 class="section-title">
+      <span class="section-icon">🏗️</span>
+      Frameworks & Libraries
+    </h2>
+    <div class="skills-grid">
+      <div class="skill-card featured">
+        <div class="skill-header">
+          <h3>NestJS</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Building scalable, enterprise-grade backend applications with TypeScript and dependency injection.</p>
       </div>
-      <span class="skill-label">Advanced</span>
+
+      <div class="skill-card featured">
+        <div class="skill-header">
+          <h3>FastAPI</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">High-performance Python APIs for AI/ML services with automatic API documentation.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <h3>React</h3>
+          <span class="skill-badge advanced">Advanced</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress advanced"></div>
+          </div>
+        </div>
+        <p class="skill-description">Modern frontend applications with hooks, context, and component-based architecture.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <h3>RxJS</h3>
+          <span class="skill-badge advanced">Advanced</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress advanced"></div>
+          </div>
+        </div>
+        <p class="skill-description">Reactive programming and event-driven architectures for complex async workflows.</p>
+      </div>
     </div>
-    <p class="skill-description">AI/ML development, data processing, and automation</p>
   </div>
 
-  <div class="skill-card">
-    <div class="skill-header">
-      <div class="skill-icon">☕</div>
-      <h3>Java</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress advanced"></div>
+  <div class="skill-section highlight-section">
+    <h2 class="section-title">
+      <span class="section-icon">🧠</span>
+      AI & Machine Learning
+    </h2>
+    <div class="skills-grid">
+      <div class="skill-card featured ai-card">
+        <div class="skill-header">
+          <h3>RAG Systems</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Retrieval-Augmented Generation architecture for AI applications with vector databases and semantic search.</p>
       </div>
-      <span class="skill-label">Advanced</span>
+
+      <div class="skill-card featured ai-card">
+        <div class="skill-header">
+          <h3>Large Language Models</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Building and integrating LLM-powered solutions with prompt engineering and fine-tuning.</p>
+      </div>
+
+      <div class="skill-card ai-card">
+        <div class="skill-header">
+          <h3>NLU Engines</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Natural Language Understanding systems for intent recognition and entity extraction.</p>
+      </div>
+
+      <div class="skill-card ai-card">
+        <div class="skill-header">
+          <h3>Speech Technologies</h3>
+          <span class="skill-badge advanced">Advanced</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress advanced"></div>
+          </div>
+        </div>
+        <p class="skill-description">STT, TTS, and voice processing pipelines for conversational AI applications.</p>
+      </div>
     </div>
-    <p class="skill-description">Enterprise applications and backend systems</p>
   </div>
+
+  <div class="skill-section">
+    <h2 class="section-title">
+      <span class="section-icon">☸️</span>
+      DevOps & Cloud
+    </h2>
+    <div class="skills-grid">
+      <div class="skill-card featured devops-card">
+        <div class="skill-header">
+          <h3>Kubernetes</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Container orchestration and cloud-native deployments with custom resources and operators.</p>
+      </div>
+
+      <div class="skill-card featured devops-card">
+        <div class="skill-header">
+          <h3>Helm Charts</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Kubernetes package management and deployment automation with templating and versioning.</p>
+      </div>
+
+      <div class="skill-card devops-card">
+        <div class="skill-header">
+          <h3>Terraform</h3>
+          <span class="skill-badge advanced">Advanced</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress advanced"></div>
+          </div>
+        </div>
+        <p class="skill-description">Infrastructure as Code for cloud automation and reproducible environments.</p>
+      </div>
+
+      <div class="skill-card devops-card">
+        <div class="skill-header">
+          <h3>Docker</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Containerization and microservices with multi-stage builds and optimization.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-section">
+    <h2 class="section-title">
+      <span class="section-icon">☁️</span>
+      Cloud Platforms
+    </h2>
+    <div class="skills-grid">
+      <div class="skill-card cloud-card">
+        <div class="skill-header">
+          <h3>Microsoft Azure</h3>
+          <span class="skill-badge expert">Expert</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress expert"></div>
+          </div>
+        </div>
+        <p class="skill-description">Azure services, AKS, and cloud architecture with extensive production experience.</p>
+      </div>
+
+      <div class="skill-card cloud-card">
+        <div class="skill-header">
+          <h3>Amazon Web Services</h3>
+          <span class="skill-badge advanced">Advanced</span>
+        </div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress advanced"></div>
+          </div>
+        </div>
+        <p class="skill-description">AWS infrastructure and cloud services including EC2, S3, Lambda, and ECS.</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-## Frameworks & Libraries
-
-<div class="skills-grid">
-  <div class="skill-card featured">
-    <div class="skill-header">
-      <div class="skill-icon">🏗️</div>
-      <h3>NestJS</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Building scalable, enterprise-grade backend applications</p>
+<div class="additional-tech-section">
+  <h2 class="section-title">Additional Technologies</h2>
+  <div class="tech-tags">
+    <span class="tech-tag">NATS</span>
+    <span class="tech-tag">WebSockets</span>
+    <span class="tech-tag">SIP</span>
+    <span class="tech-tag">REST APIs</span>
+    <span class="tech-tag">GraphQL</span>
+    <span class="tech-tag">PostgreSQL</span>
+    <span class="tech-tag">MongoDB</span>
+    <span class="tech-tag">Redis</span>
+    <span class="tech-tag">GitHub Actions</span>
+    <span class="tech-tag">GitLab CI</span>
+    <span class="tech-tag">Angular</span>
+    <span class="tech-tag">Git</span>
+    <span class="tech-tag">Jira</span>
+    <span class="tech-tag">Asana</span>
+    <span class="tech-tag">Cursor</span>
+    <span class="tech-tag">VSCode</span>
   </div>
-
-  <div class="skill-card featured">
-    <div class="skill-header">
-      <div class="skill-icon">⚡</div>
-      <h3>FastAPI</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">High-performance Python APIs for AI/ML services</p>
-  </div>
-
-  <div class="skill-card">
-    <div class="skill-header">
-      <div class="skill-icon">⚛️</div>
-      <h3>React</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress advanced"></div>
-      </div>
-      <span class="skill-label">Advanced</span>
-    </div>
-    <p class="skill-description">Modern frontend applications and UIs</p>
-  </div>
-
-  <div class="skill-card">
-    <div class="skill-header">
-      <div class="skill-icon">🔄</div>
-      <h3>RxJS</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress advanced"></div>
-      </div>
-      <span class="skill-label">Advanced</span>
-    </div>
-    <p class="skill-description">Reactive programming and event-driven architectures</p>
-  </div>
-</div>
-
-## AI & Machine Learning
-
-<div class="skills-grid">
-  <div class="skill-card featured ai-card">
-    <div class="skill-header">
-      <div class="skill-icon">🤖</div>
-      <h3>RAG Systems</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Retrieval-Augmented Generation for AI applications</p>
-  </div>
-
-  <div class="skill-card featured ai-card">
-    <div class="skill-header">
-      <div class="skill-icon">🧠</div>
-      <h3>Large Language Models</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Building and integrating LLM-powered solutions</p>
-  </div>
-
-  <div class="skill-card ai-card">
-    <div class="skill-header">
-      <div class="skill-icon">💬</div>
-      <h3>NLU Engines</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Natural Language Understanding systems</p>
-  </div>
-
-  <div class="skill-card ai-card">
-    <div class="skill-header">
-      <div class="skill-icon">🔊</div>
-      <h3>Speech Technologies</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress advanced"></div>
-      </div>
-      <span class="skill-label">Advanced</span>
-    </div>
-    <p class="skill-description">STT, TTS, and voice processing pipelines</p>
-  </div>
-</div>
-
-## DevOps & Cloud
-
-<div class="skills-grid">
-  <div class="skill-card featured devops-card">
-    <div class="skill-header">
-      <div class="skill-icon">☸️</div>
-      <h3>Kubernetes</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Container orchestration and cloud-native deployments</p>
-  </div>
-
-  <div class="skill-card featured devops-card">
-    <div class="skill-header">
-      <div class="skill-icon">⎈</div>
-      <h3>Helm Charts</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Kubernetes package management and deployment automation</p>
-  </div>
-
-  <div class="skill-card devops-card">
-    <div class="skill-header">
-      <div class="skill-icon">🏗️</div>
-      <h3>Terraform</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress advanced"></div>
-      </div>
-      <span class="skill-label">Advanced</span>
-    </div>
-    <p class="skill-description">Infrastructure as Code and cloud automation</p>
-  </div>
-
-  <div class="skill-card devops-card">
-    <div class="skill-header">
-      <div class="skill-icon">🐳</div>
-      <h3>Docker</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Containerization and microservices</p>
-  </div>
-</div>
-
-## Cloud Platforms
-
-<div class="skills-grid">
-  <div class="skill-card cloud-card">
-    <div class="skill-header">
-      <div class="skill-icon">☁️</div>
-      <h3>Microsoft Azure</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress expert"></div>
-      </div>
-      <span class="skill-label">Expert</span>
-    </div>
-    <p class="skill-description">Azure services, AKS, and cloud architecture</p>
-  </div>
-
-  <div class="skill-card cloud-card">
-    <div class="skill-header">
-      <div class="skill-icon">🌩️</div>
-      <h3>Amazon Web Services</h3>
-    </div>
-    <div class="skill-level">
-      <div class="skill-bar">
-        <div class="skill-progress advanced"></div>
-      </div>
-      <span class="skill-label">Advanced</span>
-    </div>
-    <p class="skill-description">AWS infrastructure and cloud services</p>
-  </div>
-</div>
-
-## Additional Technologies
-
-<div class="tech-tags">
-  <span class="tech-tag">NATS</span>
-  <span class="tech-tag">WebSockets</span>
-  <span class="tech-tag">SIP</span>
-  <span class="tech-tag">REST APIs</span>
-  <span class="tech-tag">GraphQL</span>
-  <span class="tech-tag">PostgreSQL</span>
-  <span class="tech-tag">MongoDB</span>
-  <span class="tech-tag">Redis</span>
-  <span class="tech-tag">GitHub Actions</span>
-  <span class="tech-tag">GitLab CI</span>
-  <span class="tech-tag">Angular</span>
-  <span class="tech-tag">Git</span>
-  <span class="tech-tag">Jira</span>
-  <span class="tech-tag">Asana</span>
-  <span class="tech-tag">Cursor</span>
-  <span class="tech-tag">VSCode</span>
 </div>
 
 <style>
@@ -300,29 +308,75 @@ subtitle: My Technology Stack & Expertise
   color: #555;
 }
 
+.skills-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skill-section {
+  margin-bottom: 4rem;
+}
+
+.skill-section.highlight-section {
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  padding: 3rem;
+  border-radius: 20px;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.section-icon {
+  font-size: 2rem;
+}
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .skill-card {
   background: white;
-  border-radius: 12px;
-  padding: 1.8rem;
+  border-radius: 16px;
+  padding: 2rem;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  position: relative;
 }
 
 .skill-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+  border-color: #667eea;
 }
 
 .skill-card.featured {
   border-color: #667eea;
+  background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
 }
 
 .skill-card.ai-card {
@@ -340,18 +394,41 @@ subtitle: My Technology Stack & Expertise
 .skill-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
   margin-bottom: 1.2rem;
-}
-
-.skill-icon {
-  font-size: 2.5rem;
+  gap: 1rem;
 }
 
 .skill-header h3 {
   font-size: 1.3rem;
   color: #2c3e50;
   margin: 0;
+  flex: 1;
+}
+
+.skill-badge {
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.skill-badge.expert {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.skill-badge.advanced {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: #2c3e50;
+}
+
+.skill-badge.intermediate {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: #2c3e50;
 }
 
 .skill-level {
@@ -363,7 +440,6 @@ subtitle: My Technology Stack & Expertise
   height: 8px;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 0.5rem;
 }
 
 .skill-progress {
@@ -385,47 +461,76 @@ subtitle: My Technology Stack & Expertise
   width: 60%;
 }
 
-.skill-label {
-  font-size: 0.85rem;
-  color: #667eea;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
 .skill-description {
   color: #666;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
+}
+
+.additional-tech-section {
+  max-width: 1100px;
+  margin: 4rem auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+}
+
+.additional-tech-section .section-title {
+  color: white;
+  justify-content: center;
+}
+
+.additional-tech-section .section-title::after {
+  background: white;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-top: 2rem;
   justify-content: center;
 }
 
 .tech-tag {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: white;
+  color: #667eea;
   padding: 0.6rem 1.2rem;
   border-radius: 25px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .tech-tag:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skill-section.highlight-section {
+    padding: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .additional-tech-section {
+    padding: 2rem;
   }
 }
 </style>
