@@ -179,12 +179,12 @@ subtitle: Academic Background & Continuous Learning
 .education-card:hover {
   transform: translateX(5px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-  border-left-color: #667eea;
+  border-left-color: #ea580c;
 }
 
 .education-card.primary {
-  border-left-color: #667eea;
-  background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+  border-left-color: #ea580c;
+  background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);
 }
 
 .education-header {
@@ -219,7 +219,7 @@ subtitle: Academic Background & Continuous Learning
 }
 
 .institution-name {
-  color: #667eea;
+  color: #ea580c;
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -255,7 +255,7 @@ subtitle: Academic Background & Continuous Learning
 }
 
 .highlight-label {
-  color: #667eea;
+  color: #ea580c;
   font-weight: 600;
   min-width: 120px;
   flex-shrink: 0;
@@ -288,7 +288,7 @@ subtitle: Academic Background & Continuous Learning
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   border-radius: 2px;
 }
 
@@ -348,7 +348,7 @@ subtitle: Academic Background & Continuous Learning
   content: "▸";
   position: absolute;
   left: 0;
-  color: #667eea;
+  color: #ea580c;
   font-weight: bold;
 }
 
@@ -356,7 +356,7 @@ subtitle: Academic Background & Continuous Learning
   max-width: 900px;
   margin: 4rem auto;
   padding: 2.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   border-radius: 16px;
   color: white;
 }

@@ -191,7 +191,7 @@ subtitle: 8+ Years of Building Exceptional Technology Products
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(180deg, #ea580c 0%, #c2410c 100%);
 }
 
 .timeline-item {
@@ -208,25 +208,25 @@ subtitle: 8+ Years of Building Exceptional Technology Products
   height: 22px;
   border-radius: 50%;
   background: white;
-  border: 4px solid #667eea;
+  border: 4px solid #ea580c;
   z-index: 1;
 }
 
 .timeline-marker.current {
-  background: #667eea;
-  box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.2);
+  background: #ea580c;
+  box-shadow: 0 0 0 6px rgba(234, 88, 12, 0.2);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    box-shadow: 0 0 0 10px rgba(234, 88, 12, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
   }
 }
 
@@ -246,12 +246,12 @@ subtitle: 8+ Years of Building Exceptional Technology Products
 .experience-card:hover {
   transform: translateX(5px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-  border-left-color: #667eea;
+  border-left-color: #ea580c;
 }
 
 .experience-card.current-role {
-  border-left-color: #667eea;
-  background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+  border-left-color: #ea580c;
+  background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);
 }
 
 .experience-header {
@@ -277,7 +277,7 @@ subtitle: 8+ Years of Building Exceptional Technology Products
 }
 
 .company-name {
-  color: #667eea;
+  color: #ea580c;
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
@@ -285,7 +285,7 @@ subtitle: 8+ Years of Building Exceptional Technology Products
 }
 
 .company-name:hover {
-  color: #764ba2;
+  color: #c2410c;
   text-decoration: underline;
 }
 
@@ -309,7 +309,7 @@ subtitle: 8+ Years of Building Exceptional Technology Products
 }
 
 .date-badge.current {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   color: white;
 }
 
@@ -368,12 +368,12 @@ subtitle: 8+ Years of Building Exceptional Technology Products
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   border-radius: 2px;
 }
 
 .volunteer-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   color: white;
   border-radius: 16px;
   padding: 2rem;

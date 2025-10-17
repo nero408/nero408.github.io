@@ -343,7 +343,7 @@ subtitle: My Technology Stack & Experience
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   border-radius: 2px;
 }
 
@@ -371,24 +371,24 @@ subtitle: My Technology Stack & Experience
 .skill-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-  border-color: #667eea;
+  border-color: #ea580c;
 }
 
 .skill-card.featured {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+  border-color: #ea580c;
+  background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);
 }
 
 .skill-card.ai-card {
-  background: linear-gradient(135deg, #fff 0%, #f0f4ff 100%);
+  background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);
 }
 
 .skill-card.devops-card {
-  background: linear-gradient(135deg, #fff 0%, #f0fff4 100%);
+  background: linear-gradient(135deg, #fff 0%, #fef3c7 100%);
 }
 
 .skill-card.cloud-card {
-  background: linear-gradient(135deg, #fff 0%, #fffbf0 100%);
+  background: linear-gradient(135deg, #fff 0%, #fed7aa 100%);
 }
 
 .skill-header {
@@ -417,18 +417,18 @@ subtitle: My Technology Stack & Experience
 }
 
 .skill-badge.expert {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   color: white;
 }
 
 .skill-badge.advanced {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  color: #2c3e50;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
 }
 
 .skill-badge.intermediate {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-  color: #2c3e50;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #292524;
 }
 
 .skill-level {
@@ -444,7 +444,7 @@ subtitle: My Technology Stack & Experience
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #ea580c 0%, #c2410c 100%);
   border-radius: 10px;
   transition: width 0.8s ease;
 }
@@ -471,10 +471,10 @@ subtitle: My Technology Stack & Experience
 .additional-tech-section {
   max-width: 1100px;
   margin: 4rem auto;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 40px rgba(234, 88, 12, 0.3);
 }
 
 .additional-tech-section .section-title {
@@ -497,7 +497,7 @@ subtitle: My Technology Stack & Experience
 
 .tech-tag {
   background: white;
-  color: #667eea;
+  color: #ea580c;
   padding: 0.6rem 1.2rem;
   border-radius: 25px;
   font-size: 0.9rem;

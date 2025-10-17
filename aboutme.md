@@ -183,11 +183,11 @@ subtitle: Software Engineer | AI Enthusiast
 }
 
 .intro-content {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   color: white;
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 40px rgba(234, 88, 12, 0.3);
 }
 
 .intro-content h2 {
@@ -226,7 +226,7 @@ subtitle: Software Engineer | AI Enthusiast
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   border-radius: 2px;
 }
 
@@ -258,7 +258,7 @@ subtitle: Software Engineer | AI Enthusiast
 .expertise-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  border-color: #667eea;
+  border-color: #ea580c;
 }
 
 .expertise-icon {
@@ -303,18 +303,18 @@ subtitle: Software Engineer | AI Enthusiast
 .journey-item:hover {
   transform: translateX(5px);
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  border-left-color: #667eea;
+  border-left-color: #ea580c;
 }
 
 .journey-item.current {
-  border-left-color: #667eea;
-  background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+  border-left-color: #ea580c;
+  background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);
 }
 
 .journey-period {
   flex-shrink: 0;
   font-weight: 600;
-  color: #667eea;
+  color: #ea580c;
   font-size: 0.95rem;
   min-width: 120px;
 }
@@ -350,7 +350,7 @@ subtitle: Software Engineer | AI Enthusiast
 }
 
 .tech-pill {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -362,11 +362,11 @@ subtitle: Software Engineer | AI Enthusiast
 
 .tech-pill:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(234, 88, 12, 0.4);
 }
 
 .education-section {
-  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fff 100%);
   padding: 3rem;
   border-radius: 20px;
 }
@@ -399,7 +399,7 @@ subtitle: Software Engineer | AI Enthusiast
 }
 
 .institution {
-  color: #667eea;
+  color: #ea580c;
   font-weight: 600;
   margin: 0.5rem 0;
 }
@@ -458,11 +458,11 @@ subtitle: Software Engineer | AI Enthusiast
   max-width: 700px;
   margin: 4rem auto;
   text-align: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   color: white;
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 40px rgba(234, 88, 12, 0.3);
 }
 
 .connect-section h2 {
@@ -487,7 +487,7 @@ subtitle: Software Engineer | AI Enthusiast
 
 .social-link {
   background: white;
-  color: #667eea;
+  color: #ea580c;
   padding: 0.8rem 1.5rem;
   border-radius: 25px;
   text-decoration: none;
@@ -499,7 +499,7 @@ subtitle: Software Engineer | AI Enthusiast
 .social-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
-  color: #667eea;
+  color: #ea580c;
 }
 
 @media (max-width: 768px) {
