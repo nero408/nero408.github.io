@@ -48,7 +48,7 @@ subtitle: Software Engineer | AI Enthusiast
       <div class="journey-period">2023 - Present</div>
       <div class="journey-details">
         <h4>Parloa GmbH</h4>
-        <p>Contributing to backend development for conversational AI platforms, working on RAG systems and agent management solutions</p>
+        <p>Building conversational AI platforms, working on RAG systems and agent management solutions</p>
       </div>
     </div>
 
