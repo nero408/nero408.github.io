@@ -1,475 +1,155 @@
----
-layout: base
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jan-Eric Gaidusch - Senior Software Engineer specializing in AI, Backend Architecture, and Cloud Technologies">
+    <meta name="author" content="Jan-Eric Gaidusch">
+    <title>Jan-Eric Gaidusch | Senior Software Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/assets/img/avatar-icon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">JG</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">about</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#experience">experience</a></li>
+                <li><a href="#education">education</a></li>
+                <li><a href="#personal">personal</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-<!-- Custom Hero Banner -->
-<div class="custom-hero-banner">
-  <div class="hero-images-row">
-    <div class="hero-image" style="background-image: url('/assets/img/big-imgs/farmlife01.png');"></div>
-    <div class="hero-image" style="background-image: url('/assets/img/big-imgs/farmlife02.png');"></div>
-    <div class="hero-image" style="background-image: url('/assets/img/big-imgs/farmlife03.png');"></div>
-    <div class="hero-image" style="background-image: url('/assets/img/big-imgs/waldmaennle-2020.png');"></div>
-    <div class="hero-image" style="background-image: url('/assets/img/big-imgs/dogs.png');"></div>
-  </div>
-  <div class="hero-overlay">
-    <div class="hero-title-wrapper">
-      <h1 class="hero-main-title">Jan-Eric Gaidusch</h1>
-      <p class="hero-subtitle">Farmer in Tech | AI | Backend | DevOps</p>
-    </div>
-  </div>
-</div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-name" id="heroName">Jan-Eric Gaidusch</h1>
+                <h2 class="hero-title" id="heroTitle">Senior Backend Engineer</h2>
+                <p class="hero-subtitle" id="heroSkills">AI • Backend Architecture • Cloud & DevOps</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Get in touch</a>
+                    <a href="#about" class="btn btn-secondary">View my work</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-<div class="hero-section">
-  <div class="hero-content">
-    <h2 class="hero-tagline">Building Quality Technology Products</h2>
-    <p class="hero-description">
-      Passionate software engineer with <strong>8+ years</strong> of hands-on experience in software development and IT operations across multiple industries.
-      Working with AI-driven solutions, backend architecture, and cloud-native technologies.
-    </p>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-number">8+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Companies</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">AI</div>
-        <div class="stat-label">Specialist</div>
-      </div>
-    </div>
-    <div class="hero-cta">
-      <a href="/experience" class="btn-primary">View Experience</a>
-      <a href="/skills" class="btn-secondary">See Skills</a>
-    </div>
-  </div>
-</div>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">01.</span>
+                About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead" id="aboutBio"></p>
+                    <div class="expertise-grid" id="expertiseGrid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="highlights-section">
-  <h2 class="section-title">Current Role</h2>
-  <div class="current-role">
-    <div class="role-header">
-      <h3>Senior Backend Engineer</h3>
-      <span class="company">@ Parloa GmbH</span>
-      <span class="location">Berlin, Germany (Remote)</span>
-    </div>
-    <p class="role-description">
-      Building conversational AI platforms for customer service automation.
-      Focusing on RAG (Retrieval-Augmented Generation) systems and scalable AI agent management.
-    </p>
-    <div class="role-highlights">
-      <div class="highlight-item">
-        <span class="highlight-icon">🤖</span>
-        <span>Building a RAG product for AI-powered customer service</span>
-      </div>
-      <div class="highlight-item">
-        <span class="highlight-icon">🏗️</span>
-        <span>Founding Engineer of the Agent Management Platform (AMP) for scalable AI operations</span>
-      </div>
-      <div class="highlight-item">
-        <span class="highlight-icon">⚡</span>
-        <span>Reshaping the conversational platform architecture with improvements for better latency & scalability</span>
-      </div>
-    </div>
-  </div>
-</div>
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">02.</span>
+                Technical Skills
+            </h2>
+            <p class="section-intro" id="skillsIntro"></p>
+            <div class="skills-container" id="skillsContainer"></div>
+            <div class="additional-tech">
+                <h3>Additional Technologies</h3>
+                <div class="tech-tags" id="additionalTech"></div>
+            </div>
+        </div>
+    </section>
 
-<div class="expertise-section">
-  <h2 class="section-title">Core Expertise</h2>
-  <div class="expertise-grid">
-    <div class="expertise-card">
-      <div class="expertise-icon">🧠</div>
-      <h3>AI & Machine Learning</h3>
-      <p>RAG systems, Large Language Models, NLU engines, conversational AI platforms</p>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-icon">⚙️</div>
-      <h3>Backend Engineering</h3>
-      <p>NestJS, FastAPI, microservices, message-driven architecture, real-time systems</p>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-icon">☁️</div>
-      <h3>Cloud & DevOps</h3>
-      <p>Kubernetes, Helm, Terraform, Azure, AWS, CI/CD automation</p>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-icon">👥</div>
-      <h3>Collaboration</h3>
-      <p>Team collaboration, supporting colleagues, technical discussions, process improvement</p>
-    </div>
-  </div>
-</div>
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">03.</span>
+                Professional Experience
+            </h2>
+            <p class="section-intro" id="experienceIntro"></p>
+            <div class="timeline" id="timeline"></div>
+        </div>
+    </section>
 
-<style>
-/* Custom Hero Banner with Image Row */
-.custom-hero-banner {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  margin-bottom: 3rem;
-}
+    <!-- Education Section -->
+    <section class="section section-alt" id="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">04.</span>
+                Education & Learning
+            </h2>
+            <p class="section-intro" id="educationIntro"></p>
+            <div class="education-grid" id="educationGrid"></div>
+            <div class="learning-section">
+                <h3>Continuous Learning</h3>
+                <div class="learning-grid" id="learningGrid"></div>
+            </div>
+        </div>
+    </section>
 
-.hero-images-row {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
+    <!-- Personal Life Section -->
+    <section class="section" id="personal">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">05.</span>
+                Beyond Work
+            </h2>
+            <p class="section-intro">When I'm not building software, you'll find me:</p>
+            <div class="interests-grid" id="interestsGrid"></div>
+            <div class="volunteer-section" id="volunteerSection"></div>
+        </div>
+    </section>
 
-.hero-image {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: flex 0.5s ease, filter 0.3s ease;
-  filter: brightness(0.75);
-  cursor: pointer;
-}
+    <!-- Contact Section -->
+    <section class="section section-contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">06.</span>
+                Get In Touch
+            </h2>
+            <div class="contact-content">
+                <p class="contact-message" id="contactMessage"></p>
+                <div class="social-links" id="socialLinks"></div>
+            </div>
+        </div>
+    </section>
 
-.hero-image:hover {
-  flex: 2;
-  filter: brightness(1);
-  z-index: 1;
-}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span id="footerName"></span>. Built with vanilla JS.</p>
+            <div class="footer-links" id="footerSocial"></div>
+        </div>
+    </footer>
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.hero-title-wrapper {
-  text-align: center;
-  padding: 2rem;
-  animation: fadeInUp 1s ease;
-  pointer-events: auto;
-}
-
-.hero-main-title {
-  font-size: 4rem;
-  font-weight: 800;
-  margin: 0 0 1rem 0;
-  color: #ffffff;
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.8),
-    0 4px 8px rgba(0, 0, 0, 0.6),
-    0 8px 16px rgba(0, 0, 0, 0.4),
-    2px 2px 4px rgba(0, 0, 0, 0.8);
-  letter-spacing: -1px;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin: 0;
-  color: #f5f5f5;
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.8),
-    0 4px 8px rgba(0, 0, 0, 0.6),
-    2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .custom-hero-banner {
-    height: 400px;
-  }
-
-  .hero-images-row {
-    flex-direction: column;
-  }
-
-  .hero-image {
-    height: 20%;
-  }
-
-  .hero-main-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .custom-hero-banner {
-    height: 300px;
-  }
-
-  .hero-main-title {
-    font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-}
-
-.hero-section {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-}
-
-.hero-tagline {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
-}
-
-.hero-description {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 2.5rem;
-}
-
-.hero-stats {
-  display: flex;
-  justify-content: space-around;
-  margin: 3rem 0;
-  gap: 2rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
-  border-radius: 12px;
-  flex: 1;
-  color: white;
-  transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.hero-cta {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.btn-primary, .btn-secondary {
-  padding: 0.9rem 2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
-  color: white;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.4);
-  color: white;
-}
-
-.btn-secondary {
-  background: white;
-  color: #ea580c;
-  border: 2px solid #ea580c;
-}
-
-.btn-secondary:hover {
-  background: #ea580c;
-  color: white;
-  transform: translateY(-2px);
-}
-
-.highlights-section, .expertise-section {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 2rem;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 2rem;
-  text-align: center;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
-  border-radius: 2px;
-}
-
-.current-role {
-  background: white;
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.current-role:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-}
-
-.role-header {
-  margin-bottom: 1.5rem;
-}
-
-.role-header h3 {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-.company {
-  color: #ea580c;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-right: 1rem;
-}
-
-.location {
-  color: #888;
-  font-size: 0.95rem;
-}
-
-.role-description {
-  color: #555;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-.role-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.highlight-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-}
-
-.highlight-item:hover {
-  background: #e9ecef;
-}
-
-.highlight-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-}
-
-.expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.expertise-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.expertise-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-.expertise-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.expertise-card h3 {
-  font-size: 1.3rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-}
-
-.expertise-card p {
-  color: #666;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-  .hero-stats {
-    flex-direction: column;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-  }
-
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    text-align: center;
-  }
-
-  .expertise-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    <script src="script.js"></script>
+</body>
+</html>

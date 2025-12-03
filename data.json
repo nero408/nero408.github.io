@@ -1,0 +1,422 @@
+{
+  "personal": {
+    "name": "Jan-Eric Gaidusch",
+    "title": "Senior Backend Engineer",
+    "subtitle": "Software Engineer | AI Enthusiast",
+    "tagline": "Senior Software Engineer | 8+ Years Experience | AI & Backend Specialist",
+    "email": "je.gaidusch@gmx.de",
+    "location": "Berlin, Germany",
+    "bio": "I'm a passionate Senior Software Engineer with over 8 years of hands-on experience in software development and IT operations across multiple industries. Currently, I'm working on conversational AI at Parloa GmbH in Berlin, where I design and implement AI solutions for customer service.",
+    "avatar": "/assets/img/avatar-icon.png",
+    "domain": "jani.gaidus.ch"
+  },
+  "social": {
+    "email": "je.gaidusch@gmx.de",
+    "github": "nero408",
+    "linkedin": "jan-eric-gaidusch-626b98185",
+    "xing": "JanEric_Gaidusch",
+    "stackoverflow": "8747994/nero408",
+    "instagram": "jani.ga"
+  },
+  "about": {
+    "intro": "Throughout my career, I've had the privilege of working with innovative companies in the AI and technology space:",
+    "expertise": [
+      {
+        "icon": "🤖",
+        "title": "AI & Machine Learning",
+        "description": "Working with RAG (Retrieval-Augmented Generation) systems, Large Language Models, and conversational AI platforms for enterprise customer service"
+      },
+      {
+        "icon": "⚙️",
+        "title": "Backend Architecture",
+        "description": "Designing scalable microservices, message-driven systems, and real-time communication platforms using modern frameworks like NestJS and FastAPI"
+      },
+      {
+        "icon": "☁️",
+        "title": "Cloud & DevOps",
+        "description": "Orchestrating Kubernetes clusters, automating infrastructure with Terraform, and optimizing CI/CD pipelines for efficient software delivery"
+      },
+      {
+        "icon": "👥",
+        "title": "Team Collaboration",
+        "description": "Contributing to team growth, supporting fellow engineers, participating in architectural discussions, and promoting continuous learning"
+      }
+    ],
+    "interests": [
+      {
+        "icon": "🐴",
+        "title": "Horse Riding",
+        "description": "Exploring the German countryside on horseback"
+      },
+      {
+        "icon": "🚜",
+        "title": "Farm Life",
+        "description": "Working on the farm and connecting with nature"
+      },
+      {
+        "icon": "🎭",
+        "title": "Community",
+        "description": "Contributing to my local community at Freizeit Aktiv e.V."
+      }
+    ],
+    "connectMessage": "I'm always interested in discussing new technologies, collaboration opportunities, or just connecting with fellow tech enthusiasts. Feel free to reach out through any of my social channels!"
+  },
+  "skills": {
+    "intro": "Throughout my 8+ years in software engineering, I've gained solid experience across a wide range of technologies, from AI/ML systems to cloud infrastructure. Here's my current technology stack:",
+    "categories": [
+      {
+        "name": "Programming Languages",
+        "icon": "💻",
+        "skills": [
+          {
+            "name": "TypeScript",
+            "level": "Proficient",
+            "proficiency": 90,
+            "description": "Primary language for backend and frontend development. Building scalable enterprise applications with type safety.",
+            "featured": true
+          },
+          {
+            "name": "Python",
+            "level": "Advanced",
+            "proficiency": 85,
+            "description": "AI/ML development, data processing, and automation. Building intelligent systems and APIs.",
+            "featured": true
+          },
+          {
+            "name": "Java",
+            "level": "Advanced",
+            "proficiency": 75,
+            "description": "Enterprise applications and backend systems. Solid foundation in OOP and design patterns.",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "name": "Frameworks & Libraries",
+        "icon": "🏗️",
+        "skills": [
+          {
+            "name": "NestJS",
+            "level": "Proficient",
+            "proficiency": 90,
+            "description": "Building scalable, enterprise-grade backend applications with TypeScript and dependency injection.",
+            "featured": true
+          },
+          {
+            "name": "FastAPI",
+            "level": "Proficient",
+            "proficiency": 85,
+            "description": "High-performance Python APIs for AI/ML services with automatic API documentation.",
+            "featured": true
+          },
+          {
+            "name": "React",
+            "level": "Advanced",
+            "proficiency": 75,
+            "description": "Modern frontend applications with hooks, context, and component-based architecture.",
+            "featured": false
+          },
+          {
+            "name": "RxJS",
+            "level": "Advanced",
+            "proficiency": 75,
+            "description": "Reactive programming and event-driven architectures for complex async workflows.",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "name": "AI & Machine Learning",
+        "icon": "🧠",
+        "highlight": true,
+        "skills": [
+          {
+            "name": "RAG Systems",
+            "level": "Proficient",
+            "proficiency": 85,
+            "description": "Retrieval-Augmented Generation architecture for AI applications with vector databases and semantic search.",
+            "featured": true
+          },
+          {
+            "name": "Large Language Models",
+            "level": "Proficient",
+            "proficiency": 85,
+            "description": "Building and integrating LLM-powered solutions with prompt engineering and fine-tuning.",
+            "featured": true
+          },
+          {
+            "name": "NLU Engines",
+            "level": "Proficient",
+            "proficiency": 80,
+            "description": "Natural Language Understanding systems for intent recognition and entity extraction.",
+            "featured": false
+          },
+          {
+            "name": "Speech Technologies",
+            "level": "Advanced",
+            "proficiency": 75,
+            "description": "STT, TTS, and voice processing pipelines for conversational AI applications.",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "name": "DevOps & Cloud",
+        "icon": "☸️",
+        "skills": [
+          {
+            "name": "Kubernetes",
+            "level": "Proficient",
+            "proficiency": 85,
+            "description": "Container orchestration and cloud-native deployments with custom resources and operators.",
+            "featured": true
+          },
+          {
+            "name": "Helm Charts",
+            "level": "Proficient",
+            "proficiency": 85,
+            "description": "Kubernetes package management and deployment automation with templating and versioning.",
+            "featured": true
+          },
+          {
+            "name": "Terraform",
+            "level": "Advanced",
+            "proficiency": 75,
+            "description": "Infrastructure as Code for cloud automation and reproducible environments.",
+            "featured": false
+          },
+          {
+            "name": "Docker",
+            "level": "Proficient",
+            "proficiency": 85,
+            "description": "Containerization and microservices with multi-stage builds and optimization.",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "name": "Cloud Platforms",
+        "icon": "☁️",
+        "skills": [
+          {
+            "name": "Microsoft Azure",
+            "level": "Proficient",
+            "proficiency": 85,
+            "description": "Azure services, AKS, and cloud architecture with extensive production experience.",
+            "featured": false
+          },
+          {
+            "name": "Amazon Web Services",
+            "level": "Advanced",
+            "proficiency": 75,
+            "description": "AWS infrastructure and cloud services including EC2, S3, Lambda, and ECS.",
+            "featured": false
+          }
+        ]
+      }
+    ],
+    "additionalTechnologies": [
+      "NATS",
+      "WebSockets",
+      "SIP",
+      "REST APIs",
+      "GraphQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "GitHub Actions",
+      "GitLab CI",
+      "Angular",
+      "Git",
+      "Jira",
+      "Asana",
+      "Cursor",
+      "VSCode"
+    ]
+  },
+  "experience": {
+    "intro": "Throughout my career, I've had the privilege of working with innovative companies across multiple industries, from conversational AI to industrial 3D printing. Here's my professional journey:",
+    "positions": [
+      {
+        "title": "Senior Backend Engineer",
+        "company": "Parloa GmbH",
+        "companyUrl": "https://parloa.com",
+        "location": "Berlin, Germany (Remote)",
+        "period": "May 2023 - Present",
+        "current": true,
+        "summary": "Parloa is a conversational AI company that provides a platform to manage AI agents for customer service - enabling enterprises to automate and improve customer interactions across voice, chat, email etc.",
+        "achievements": [
+          "🤖 Designed and implemented a Retrieval-Augmented Generation (RAG) product powering AI agents in customer service use cases",
+          "🏗️ Built the foundation of the Agent Management Platform, enabling scalable creation and management of AI agents",
+          "👥 Contributed to growing the engineering team by supporting interviews, onboarding and mentoring",
+          "⚡ Redesigned and rebuilt the Conversational Platform architecture (channels: SIP, WebSocket, REST; audio pipeline: STT, TTS, VAD) into a robust, message-driven system reducing latency and improving scalability"
+        ]
+      },
+      {
+        "title": "Head of Engineering",
+        "company": "Kauz GmbH",
+        "companyUrl": "https://kauz.net",
+        "location": "Düsseldorf, Germany (Remote)",
+        "period": "Jul 2021 - Jan 2023",
+        "current": false,
+        "summary": "Kauz develops linguistic-based Chatbots. With their NLU-Engine, Kauz improves the service quality and provides constant availability for customers and employees.",
+        "achievements": [
+          "☁️ Consolidated and migrated the operations landscape by introducing a cloud-agnostic Kubernetes-oriented approach",
+          "🏛️ Introduced a new architecture to enable better stability and scalability of the existing product"
+        ]
+      },
+      {
+        "title": "Senior Full Stack Engineer",
+        "company": "Neohelden GmbH",
+        "companyUrl": "https://www.linkedin.com/company/neohelden/",
+        "location": "Karlsruhe, Germany",
+        "period": "Jul 2019 - Jul 2021",
+        "current": false,
+        "summary": "Neohelden develops Neo, a self-learning AI assistant for businesses that can be used via voice and chat. Neo automates processes, increases operational efficiency, and levels up the user experience.",
+        "achievements": [
+          "🔄 Migrated and reimplemented a NodeJS backend application from FeathersJS to NestJS",
+          "🎤 Integrated Speech To Text and Text To Speech technologies as microservices",
+          "🐍 Developed and maintained a python SDK",
+          "🧠 Integrated support for multiple NLU Technologies into the core application",
+          "☸️ Introduced kubernetes compatibility with helm charts",
+          "🚀 Maintained and optimized development automations with Gitlab CI and Github Actions"
+        ]
+      },
+      {
+        "title": "Software Engineer",
+        "company": "Fiducia & GAD IT AG (now Atruvia)",
+        "companyUrl": null,
+        "location": "Karlsruhe, Germany",
+        "period": "Sep 2014 - Jun 2019",
+        "current": false,
+        "summary": "Fiducia & GAD IT AG (now called Atruvia) is the main IT service provider for the Volksbanken in Germany. They focus on developing and providing banking software.",
+        "achievements": [
+          "🏦 Developed & Maintained a middle layer application to manage and execute BI reports on mainframe machines"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "intro": "My educational journey has provided me with a strong foundation in computer science and software engineering, which I continue to build upon through continuous learning and hands-on experience.",
+    "degrees": [
+      {
+        "degree": "Bachelor of Science (B.Sc.) in Applied Informatics",
+        "institution": "Baden-Wuerttemberg Cooperative State University (DHBW)",
+        "period": "2014 - 2017",
+        "icon": "🎓",
+        "primary": true,
+        "description": "The DHBW program combines theoretical knowledge with practical experience through a dual education system. I gained hands-on experience working with Fiducia & GAD IT AG while studying computer science fundamentals, software engineering principles, and enterprise application development.",
+        "highlights": [
+          {
+            "label": "Focus Areas",
+            "text": "Software Engineering, Algorithms, Database Systems, Enterprise Architecture"
+          },
+          {
+            "label": "Type",
+            "text": "Dual Education (Theory + Practice)"
+          }
+        ]
+      },
+      {
+        "degree": "General Qualification for University Entrance (Abitur)",
+        "institution": "Albert-Einstein-Schule Ettlingen",
+        "period": "2011 - 2014",
+        "icon": "📚",
+        "primary": false,
+        "description": "Specialized in Information Technology, building a strong foundation in computer science concepts, programming fundamentals, and technical problem-solving.",
+        "highlights": [
+          {
+            "label": "Specialization",
+            "text": "Information Technology"
+          }
+        ]
+      }
+    ],
+    "continuousLearning": {
+      "intro": "Beyond formal education, I'm committed to continuous learning and staying current with emerging technologies. Here are some areas where I've developed expertise through professional experience and self-study:",
+      "areas": [
+        {
+          "icon": "🤖",
+          "title": "Artificial Intelligence & ML",
+          "items": [
+            "RAG (Retrieval-Augmented Generation) Systems",
+            "Large Language Models Integration",
+            "Natural Language Understanding",
+            "Speech Technologies (STT, TTS)"
+          ]
+        },
+        {
+          "icon": "☁️",
+          "title": "Cloud & Infrastructure",
+          "items": [
+            "Kubernetes & Container Orchestration",
+            "Infrastructure as Code (Terraform)",
+            "Cloud Platforms (Azure, AWS)",
+            "CI/CD Pipeline Automation"
+          ]
+        },
+        {
+          "icon": "⚙️",
+          "title": "Software Architecture",
+          "items": [
+            "Microservices Architecture",
+            "Message-Driven Systems",
+            "Real-time Communication",
+            "Scalable Backend Design"
+          ]
+        },
+        {
+          "icon": "👨‍💻",
+          "title": "Modern Development",
+          "items": [
+            "TypeScript & Advanced JavaScript",
+            "Python for AI/ML Applications",
+            "NestJS & FastAPI Frameworks",
+            "React & Modern Frontend"
+          ]
+        }
+      ]
+    },
+    "professionalDevelopment": {
+      "description": "I believe in learning by doing. Throughout my career, I've gained practical expertise through:",
+      "items": [
+        {
+          "icon": "💼",
+          "text": "8+ years of hands-on software engineering experience"
+        },
+        {
+          "icon": "🎯",
+          "text": "Leadership roles including Head of Engineering positions"
+        },
+        {
+          "icon": "🏗️",
+          "text": "Architecting and building production systems serving enterprise customers"
+        },
+        {
+          "icon": "👥",
+          "text": "Mentoring engineers and growing technical teams"
+        }
+      ]
+    }
+  },
+  "volunteer": {
+    "title": "Managing Committee",
+    "organization": "Freizeit Aktiv e.V.",
+    "website": "https://freizeitaktiv.net",
+    "period": "September 2015 - Present",
+    "description": "Freizeit Aktiv e.V. is a club offering its members multiple options to do sports and is also participating in the local carnival. Serving on the managing committee to support community engagement and sports activities."
+  },
+  "metadata": {
+    "theme": {
+      "primaryColor": "#ea580c",
+      "primaryColorDark": "#c2410c",
+      "navbarColor": "#F5F5F5",
+      "navbarTextColor": "#292524",
+      "linkColor": "#ea580c",
+      "hoverColor": "#c2410c"
+    },
+    "analytics": {
+      "googleAnalyticsId": "UA-139255540-1"
+    }
+  }
+}
