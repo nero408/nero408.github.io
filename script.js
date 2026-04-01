@@ -242,10 +242,15 @@ function createLearningCard(area) {
 }
 
 function renderPersonal() {
-    // Render interests
+    const interestImages = {
+        'Horse Riding': 'assets/img/interest-horse.png',
+        'Community': 'assets/img/interest-community.png'
+    };
+
     const interestsGrid = document.getElementById('interestsGrid');
-    data.about.interests.forEach(interest => {
-        const card = createInterestCard(interest);
+    data.about.interests.forEach((interest, index) => {
+        const image = interestImages[interest.title] || null;
+        const card = createInterestCard(interest, image, index);
         interestsGrid.appendChild(card);
     });
 
@@ -255,14 +260,31 @@ function renderPersonal() {
     volunteerSection.appendChild(volunteerCard);
 }
 
-function createInterestCard(interest) {
+function createInterestCard(interest, image, index) {
     const card = document.createElement('div');
-    card.className = 'interest-card';
-    card.innerHTML = `
-        <span class="interest-icon">${interest.icon}</span>
-        <h3>${interest.title}</h3>
-        <p>${interest.description}</p>
-    `;
+
+    if (image) {
+        card.className = 'interest-card interest-card-image';
+        if (index === 0) card.classList.add('interest-card-wide');
+        card.innerHTML = `
+            <div class="interest-card-bg">
+                <img src="${image}" alt="${interest.title}" loading="lazy">
+                <div class="interest-card-overlay"></div>
+            </div>
+            <div class="interest-card-content">
+                <span class="interest-icon">${interest.icon}</span>
+                <h3>${interest.title}</h3>
+                <p>${interest.description}</p>
+            </div>
+        `;
+    } else {
+        card.className = 'interest-card';
+        card.innerHTML = `
+            <span class="interest-icon">${interest.icon}</span>
+            <h3>${interest.title}</h3>
+            <p>${interest.description}</p>
+        `;
+    }
     return card;
 }
 
