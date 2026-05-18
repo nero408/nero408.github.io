@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="mdmux is a 1,500-line Rust TUI that combines a file picker with live-rendered markdown — and gets the rendering for free by piggy-backing on cmux.">
+    <meta name="description" content="mdmux is a Rust TUI for browsing markdown files with a live-rendered preview — works standalone or with cmux. No external dependencies required.">
     <meta name="author" content="Jan-Eric Gaidusch">
-    <title>mdmux: a tiny TUI that turns cmux into a markdown IDE | Jan-Eric Gaidusch</title>
+    <title>mdmux: a standalone markdown TUI (with optional cmux integration) | Jan-Eric Gaidusch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -44,9 +44,9 @@
             <a href="../index.html#writing" class="back-link">← Writing</a>
             <div class="post-meta-bar">
                 <span class="post-date">2026-05-17</span>
-                <span class="post-readtime">4 min read</span>
+                <span class="post-readtime">5 min read</span>
             </div>
-            <h1 class="blog-title">mdmux: a tiny TUI that turns cmux into a markdown IDE</h1>
+            <h1 class="blog-title">mdmux: a standalone markdown TUI (with optional cmux integration)</h1>
             <a href="https://github.com/nero408/mdmux" target="_blank" rel="noopener noreferrer" class="source-link">github.com/nero408/mdmux →</a>
         </div>
     </header>
@@ -63,7 +63,7 @@
 
         <p>What I actually wanted was an <code>nnn</code>/<code>yazi</code>-style file picker on the left, a live-rendered markdown panel on the right, no mouse, no Electron, no context switch. So I built one.</p>
 
-        <p><strong><code>mdmux</code></strong> is a 1,500-line Rust TUI that does exactly that — and it gets the rendering for free by piggy-backing on <a href="https://cmux.app" target="_blank" rel="noopener noreferrer">cmux</a>.</p>
+        <p><strong><code>mdmux</code></strong> is a Rust TUI that does exactly that. On a machine with <a href="https://cmux.app" target="_blank" rel="noopener noreferrer">cmux</a> running you get cmux's native renderer; on any other machine — or if you pass <code>--no-cmux</code> — mdmux renders the markdown panel itself, inside its own ratatui surface. No external dependencies required.</p>
 
         <div class="code-block">
             <div class="code-block-header">
@@ -71,48 +71,41 @@
                 <button class="copy-btn" aria-label="Copy code">copy</button>
             </div>
             <pre><code class="nohighlight"> mdmux  /home/me/notes
-┌ Files (12) ────────────────────────┐
-│  📝 README.md                      │
-│▾ 📁 docs                           │
-│  ▾ 📁 api                          │      ┌────────────────────────┐
-│      📝 endpoints.md               │ ───▶ │ Rendered markdown      │
-│      📝 errors.md                  │      │ shows up in the cmux   │
-│      📝 webhooks.md                │      │ panel to the right,    │
-│    📝 getting-started.md           │      │ with live reload.      │
-│▾ 📁 notes                          │      └────────────────────────┘
-│    📝 2026-05-13-design.md         │
-│    📝 random.md                    │
-└────────────────────────────────────┘
- open  /home/me/notes/docs/api/endpoints.md  [surface:438]</code></pre>
+┌ Files (12) ────────────────────────┬────────────────────────────────────────┐
+│  📝 README.md                      │  # endpoints                           │
+│▾ 📁 docs                           │                                        │
+│  ▾ 📁 api                          │  The API uses REST with JSON bodies.   │
+│    ► 📝 endpoints.md               │  All requests require an `Auth` header.│
+│      📝 errors.md                  │                                        │
+│      📝 webhooks.md                │  ## Routes                             │
+│    📝 getting-started.md           │                                        │
+│▾ 📁 notes                          │  `GET /v1/items`   list all items      │
+│    📝 2026-05-13-design.md         │  `POST /v1/items`  create an item      │
+│    📝 random.md                    │                                        │
+└────────────────────────────────────┴────────────────────────────────────────┘
+ open  /home/me/notes/docs/api/endpoints.md  [in-process]
+↑/↓ move · enter open · / filter · j/k scroll preview · ? help · q quit</code></pre>
         </div>
 
-        <h2>The trick: don't render markdown, let cmux do it</h2>
+        <h2>Two rendering modes, one tool</h2>
 
-        <p>cmux ships a <code>cmux markdown open &lt;path&gt;</code> command. It splits the current pane, renders the file with rich formatting, and watches it for changes on disk. It prints something like <code>surface:438</code> to stdout — a handle to the panel it just opened.</p>
+        <p>At startup, mdmux runs <code>cmux ping</code>. If it succeeds, you're in <strong>cmux mode</strong>: pressing <code>Enter</code> on a file shells out to <code>cmux markdown open &lt;path&gt;</code>, which splits the current pane and renders the file in cmux's native viewer with live reload. The key design choice here is <em>replace, don't stack</em> — selecting another file calls <code>cmux close-surface --surface &lt;prev&gt;</code> before opening the new one. No tab hoarding.</p>
 
-        <p>That's the whole rendering pipeline I needed. So mdmux is <em>not</em> a markdown renderer. It's a file picker that talks to cmux:</p>
+        <p>If <code>cmux ping</code> fails — or you pass <code>--no-cmux</code> — mdmux silently falls back to <strong>in-process mode</strong>: the TUI itself grows a second pane in a 40/60 split. The rendering is done by <a href="https://crates.io/crates/tui-markdown" target="_blank" rel="noopener noreferrer">tui-markdown</a> (built on pulldown-cmark), which gives headings, lists, blockquotes, inline emphasis, and fenced code blocks with <a href="https://github.com/trishume/syntect" target="_blank" rel="noopener noreferrer">syntect</a>-powered syntax highlighting, all for free. Live reload comes from a <a href="https://crates.io/crates/notify" target="_blank" rel="noopener noreferrer">notify</a> watcher — same experience as cmux, just rendered inside our own pane.</p>
 
-        <ol>
-            <li>Walk the directory tree, respecting <code>.gitignore</code> (via <code>ignore</code>, the same crate ripgrep uses). Keep only <code>.md</code> files and their ancestor directories.</li>
-            <li>Render the tree in <a href="https://ratatui.rs/" target="_blank" rel="noopener noreferrer">ratatui</a> with Vim-style keys.</li>
-            <li>On <code>Enter</code>, shell out to <code>cmux markdown open &lt;selected&gt;</code>, parse <code>surface:NNN</code> from its output, remember it.</li>
-            <li>On the <em>next</em> <code>Enter</code>, call <code>cmux close-surface --surface &lt;previous&gt;</code> <em>before</em> opening the new one. The panel is replaced, not stacked.</li>
-            <li>On <code>q</code>, close the tracked panel. On <code>Q</code>, leave it open.</li>
-        </ol>
-
-        <p>That's it. ~150 lines of glue between a tree walker and a CLI wrapper.</p>
-
-        <p>The "replace, don't stack" rule is the one design decision I'd defend to the death. Stacked panels make a file picker feel like a tab hoarder. Replacement makes it feel like a preview pane.</p>
+        <p>The status line tells you which mode you ended up in, so there's no guessing.</p>
 
         <h2>Why a separate tool, why not a cmux feature?</h2>
 
-        <p>Three reasons:</p>
+        <p>Three reasons, still the same as on day one:</p>
 
         <ul>
             <li><strong>Boundaries.</strong> cmux is a terminal multiplexer. Knowing which markdown file to open next is a notes-app concern, not a multiplexer concern.</li>
             <li><strong>Composition.</strong> <code>mdmux --list</code> prints matched paths and exits — pipe it into <code>fzf</code>, <code>xargs</code>, your own scripts. The TUI is one front-end among many.</li>
-            <li><strong>Testability.</strong> Every cmux call goes through a <code>CmuxClient</code> trait with a mock impl. The state machine is unit-tested without ever spawning a real cmux process. <code>cargo test</code> runs in &lt;1s.</li>
+            <li><strong>Testability.</strong> Every cmux call goes through a <code>CmuxClient</code> trait with a mock impl. The state machine is unit-tested without ever spawning a real cmux process. <code>cargo test</code> runs in &lt;1s. In-process mode gets the same treatment — preview loading and watcher events are tested against the same state machine.</li>
         </ul>
+
+        <p>The original launch had an awkward story: "install cmux first, or you get a browse-only TUI with error overlays on Enter." That's the wrong gate for a Day-1 open-source release — it limits the audience to people who already use cmux. Adding the in-process renderer fixed that without compromising the cmux experience at all.</p>
 
         <h2>What I learned building it</h2>
 
@@ -120,16 +113,17 @@
 
         <ul>
             <li><strong><code>ignore</code> is a gift.</strong> Two function calls and I get ripgrep-grade <code>.gitignore</code> handling, including nested ignores and global excludes.</li>
-            <li><strong>ratatui's stateful widgets</strong> make tree selection trivial once you separate "the model" (a flat <code>Vec&lt;Entry&gt;</code> with depth) from "the rendering."</li>
-            <li><strong>Trait-based side effects</strong> kept me honest. Every time I was tempted to call <code>Command::new("cmux")</code> directly, the trait reminded me to route it through the wrapper. The state machine never knew cmux existed.</li>
+            <li><strong>tui-markdown does the heavy lifting.</strong> I expected to spend a week on a Markdown-to-ratatui renderer. Instead it was one dependency and a <code>render()</code> call. Headings, fenced code blocks with syntax highlighting, blockquotes — all just worked.</li>
+            <li><strong>Trait-based side effects</strong> kept me honest. Every time I was tempted to call <code>Command::new("cmux")</code> directly, the <code>CmuxClient</code> trait reminded me to route it through the wrapper. The state machine never knew cmux existed — which is exactly what made adding a second render mode painless.</li>
         </ul>
 
         <p>A few were surprisingly hard:</p>
 
         <ul>
-            <li><strong>Edge keys.</strong> <code>g g</code> for "jump to top" needs a pending-prefix state machine that times out and forgets, exactly like Vim. Most TUI key handlers I'd seen ignored this; getting it right took a refactor.</li>
+            <li><strong>Watch the parent, not the file.</strong> <code>notify</code> on a single file misses saves from editors that write via rename-then-move (which is most of them, for atomicity). Watching the parent directory and filtering events by path is the fix. Easy to get wrong once, obvious in hindsight.</li>
+            <li><strong>Context-sensitive key bindings.</strong> <code>j</code> and <code>k</code> mean "move selection" in the tree, but "scroll preview" once a file is open. Getting the guards right — and making sure cmux users (who have no in-process preview) never see scroll behaviour — took a careful refactor. The final rule: <code>j</code>/<code>k</code> scroll only when <code>app.preview.is_some()</code>; otherwise they navigate the tree as usual.</li>
+            <li><strong>Edge keys.</strong> <code>g g</code> for "jump to top" needs a pending-prefix state machine that times out and forgets, exactly like Vim. Most TUI key handlers I'd seen ignored this; getting it right took another refactor.</li>
             <li><strong>Surface lifecycle.</strong> "Quit while a panel is open" is the kind of case you forget until a user's pane is stuck open after <code>Ctrl+C</code>. The fix was a <code>Drop</code> impl that closes any tracked surface, plus an explicit <code>Q</code> to opt out.</li>
-            <li><strong>Filter + tree.</strong> Live <code>/</code>-filtering has to keep parent directories visible even when <em>they</em> don't match — otherwise matched files become orphans with no path context. Solved by collecting matches first, then back-filling ancestors.</li>
         </ul>
 
         <h2>Install</h2>
@@ -144,7 +138,7 @@
 cargo install mdmux</code></pre>
         </div>
 
-        <p>You need <a href="https://cmux.app" target="_blank" rel="noopener noreferrer">cmux</a> installed and running. macOS and Linux are supported. Rust 1.83+ to build from source.</p>
+        <p>macOS and Linux are supported. Rust ≥ 1.85 to build from source. <a href="https://cmux.app" target="_blank" rel="noopener noreferrer">cmux</a> is optional — if it's not running, mdmux renders the preview pane itself.</p>
 
         <h2>Where it's headed</h2>
 
@@ -154,10 +148,10 @@ cargo install mdmux</code></pre>
             <li><strong><code>s</code> — search across file <em>contents</em></strong> (ripgrep-style), not just names.</li>
             <li><strong>Bookmarks</strong> — pin a directory to the top of the tree.</li>
             <li><strong>A <code>--watch</code> mode</strong> that re-walks on disk events instead of on <code>r</code>.</li>
-            <li><strong>Plugin hook</strong> for "open with" so people can wire it to glow / mdcat / their editor instead of cmux when they want.</li>
+            <li><strong>Open in editor</strong> — <code>e</code> to open the selected file in <code>$EDITOR</code> without leaving the TUI.</li>
         </ul>
 
-        <p>If any of those sound useful — or you have a use case I haven't thought of — open an issue. PRs welcome; <code>cargo test</code> should stay green and new behavior gets a unit test against the <code>CmuxClient</code> trait.</p>
+        <p>If any of those sound useful — or you have a use case I haven't thought of — open an issue. PRs welcome; <code>cargo test</code> should stay green and new behaviour gets a unit test against the <code>CmuxClient</code> trait.</p>
 
         <h2>Try it</h2>
 
@@ -171,7 +165,7 @@ cd ~/notes
 mdmux</code></pre>
         </div>
 
-        <p>That should be all it takes. If it isn't, <a href="https://github.com/nero408/mdmux/issues" target="_blank" rel="noopener noreferrer">tell me what broke</a>.</p>
+        <p>That should be all it takes. cmux not required. If something breaks, <a href="https://github.com/nero408/mdmux/issues" target="_blank" rel="noopener noreferrer">tell me what broke</a>.</p>
 
         <hr>
 
