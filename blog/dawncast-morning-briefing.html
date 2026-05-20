@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="dawncast turns overnight git activity — commits, PRs, agent journals — into a multilingual podcast briefing you can listen to on the morning dog walk.">
+    <meta name="author" content="Jan-Eric Gaidusch">
+    <title>dawncast: a morning briefing podcast for repos your agents worked on overnight | Jan-Eric Gaidusch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="icon" href="/assets/img/avatar-icon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-logo">JG</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">about</a></li>
+                <li><a href="../index.html#skills">skills</a></li>
+                <li><a href="../index.html#experience">experience</a></li>
+                <li><a href="../index.html#education">education</a></li>
+                <li><a href="../index.html#personal">personal</a></li>
+                <li><a href="../index.html#writing">writing</a></li>
+                <li><a href="../index.html#contact">contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <header class="blog-hero">
+        <div class="blog-hero-inner">
+            <a href="../index.html#writing" class="back-link">← Writing</a>
+            <div class="post-meta-bar">
+                <span class="post-date">2026-05-20</span>
+                <span class="post-readtime">6 min read</span>
+            </div>
+            <h1 class="blog-title">dawncast: a morning briefing podcast for repos your agents worked on overnight</h1>
+            <a href="https://github.com/nero408/dawncast" target="_blank" rel="noopener noreferrer" class="source-link">github.com/nero408/dawncast →</a>
+        </div>
+    </header>
+
+    <!-- Post Body -->
+    <article class="blog-article">
+
+        <p>I run a lot of overnight agent loops. Research ideas, prototypes, refactors I'd never have the patience to do by hand — I queue them up before bed and let them grind. By morning the repo has new commits, a couple of PRs, a fresh <code>WINNER_REPORT.md</code>, and a <code>journal.md</code> that reads like a stream-of-consciousness diary of every dead end the agent walked down at 3am.</p>
+
+        <p>I also have a dog. She needs walking around 7. Reading diffs with a leash in one hand and a coffee in the other is not a workflow — it's a way to spill coffee on the dog. What I wanted was a <em>podcast</em>: a 3-minute briefing I could listen to on the way to the field, and arrive knowing what shipped.</p>
+
+        <p>So I built <strong><code>dawncast</code></strong>. It's a Python CLI that turns the overnight delta on a git repo into a multilingual audio briefing.</p>
+
+        <div class="code-block">
+            <div class="code-block-header">
+                <span class="code-lang">terminal</span>
+                <button class="copy-btn" aria-label="Copy code">copy</button>
+            </div>
+            <pre><code class="nohighlight">$ dawncast podcast --since overnight --languages "English,German"
+
+▸ collecting commits in main since 2026-05-19 18:00 …  14 commits
+▸ enriching with GitHub PRs (gh)  …                     3 PRs
+▸ picking up agent journals       …                     2 markdown files
+▸ rendering producer brief        …                     briefings/repo-2026-05-20.md
+▸ podcastfy: writing dialogue (gemini)  …               ✓
+▸ podcastfy: rendering audio (edge)     …               ✓ english (2m41s)
+                                                         ✓ german  (2m48s)
+
+→ out/dawncast-repo-english.mp3
+→ out/dawncast-repo-german.mp3</code></pre>
+        </div>
+
+        <h2>Two stages, one pipeline</h2>
+
+        <p>The pipeline splits cleanly in half, and that split is load-bearing — most of the design decisions fall out of it.</p>
+
+        <p><strong>Stage 1 — the briefing.</strong> Collect everything the morning-self needs to know: commits in the window, file changes (with collapsed diffs), GitHub PRs pulled via <code>gh</code> if it's authenticated, and any agent-authored markdown notes inside the repo. Render it all into a single producer-ready markdown file. That file is useful on its own — it's a perfectly reasonable PR description, a standup note, a "what did the agent do" log. No audio, no API keys, no network. <code>dawncast briefing</code> stops here.</p>
+
+        <p><strong>Stage 2 — the podcast.</strong> Hand the briefing to <a href="https://github.com/souzatharsis/podcastfy" target="_blank" rel="noopener noreferrer">podcastfy</a>, which has an LLM write a two-host conversation from it and a TTS engine speak it. By default the TTS is <strong>Microsoft Edge TTS</strong> — free, no API key, neural voices in 60+ languages.</p>
+
+        <p>The reason the split matters: the briefing is deterministic and cheap; the podcast is stochastic and (potentially) expensive. Keeping them as separate commands means I can iterate on the briefing format without burning LLM tokens, and I can re-render audio in a different language from a cached briefing without re-walking git history.</p>
+
+        <h2>The signals beyond <code>git log</code></h2>
+
+        <p>If all you wanted was a summary of overnight commits, you don't need a tool — you need <code>git log --since=yesterday | claude</code>. The reason that's not enough is that agents don't <em>only</em> commit. They narrate.</p>
+
+        <p>Mine drop files like <code>WINNER_REPORT.md</code> (which of three competing approaches won the bake-off), <code>FEATURE_BACKLOG.md</code> (what's queued for the next loop), <code>NORTH_STAR.md</code> (the agent's current understanding of the goal), and <code>journal.md</code> (everything that didn't fit elsewhere). These files often contain the <em>why</em> behind the diff — and a diff without a why is just noise on a 7am walk.</p>
+
+        <p><code>dawncast</code> auto-discovers them. Out of the box it picks up <code>WINNER_REPORT*.md</code>, <code>FEATURE_BACKLOG.md</code>, <code>NORTH_STAR.md</code>, <code>AGENT_LOG*.md</code>, <code>docs/agents/*.md</code>, and anything under <code>.dawncast/journal*.md</code>, provided they were touched in the window. If your agent already writes to one of those paths, you get journal pickup for free. If it doesn't, point it at <code>.dawncast/journal.md</code> and you're done.</p>
+
+        <p>GitHub PRs come through the same window filter, via <code>gh</code>. Title, state, author, body. If <code>gh auth status</code> is happy, they're in the brief. If not, <code>--no-prs</code> and move on.</p>
+
+        <h2>Two modes: overnight and feature</h2>
+
+        <p>Same engine, two framings — and the framing is what makes the audio listenable.</p>
+
+        <ul>
+            <li><strong>Overnight</strong> (default). Window: <code>[--since, now]</code>, branch: <code>HEAD</code>. Producer brief says: <em>"morning catch-up — what shipped while you slept."</em> The two hosts talk like coworkers reading the previous day's standup.</li>
+            <li><strong>Feature</strong> (<code>--feature BRANCH</code>). Window: commits unique to <code>BRANCH</code> vs an auto-detected base (<code>main</code> → <code>master</code> → <code>develop</code> → <code>origin/HEAD</code>). Producer brief says: <em>"feature walkthrough for a teammate doing code review."</em> The hosts slow down, explain decisions, walk through diffs. Same files, different cadence.</li>
+        </ul>
+
+        <p>The feature mode is the one I didn't expect to keep using. It turns out a 5-minute audio walkthrough of a branch is a surprisingly good PR companion — I'll generate one before I write the actual PR description, listen to it, and find that the hosts already articulated the trade-off I was about to bury in a bullet point.</p>
+
+        <h2>Decoupling dialogue from voice</h2>
+
+        <p>podcastfy needs two model choices: an <strong>LLM</strong> to write the script, and a <strong>TTS</strong> engine to speak it. <code>dawncast</code> treats these as independent picks — you can mix any LLM with any TTS — because the cost curves are completely different.</p>
+
+        <ul>
+            <li>LLM quality determines whether the hosts <em>say something interesting</em>. A good LLM finds the narrative thread in a messy diff. A bad one reads the changelog aloud.</li>
+            <li>TTS quality determines whether you can <em>stand listening</em> for three minutes. Robotic prosody is fine for a single sentence and unbearable for a conversation.</li>
+        </ul>
+
+        <p>The cheapest viable combo: <strong>Gemini for dialogue</strong> (free tier, generous), <strong>Edge for voices</strong> (free, no key, multilingual). That's the default. Upgrade either side independently when you want to: <code>--tts elevenlabs</code> for emotive multilingual voices, <code>--llm-model gpt-5.2</code> for sharper dialogue, mix and match. The provider matrix in the README has the full menu.</p>
+
+        <p>Speaking of multilingual — <code>dawncast</code> ships voice mappings for sixteen languages on Edge: English, German, Spanish, French, Italian, Portuguese, Dutch, Polish, Swedish, Japanese, Chinese, Korean, Arabic, Hindi, Turkish, Russian. <code>--languages "English,German"</code> generates one MP3 per language from a shared briefing. I use both — English for technical density, German for ambient listening on the walk.</p>
+
+        <h2><code>dawncast doctor</code></h2>
+
+        <p>The CLI feature I wish more tools had. Run it and you get a PASS/WARN/FAIL table:</p>
+
+        <div class="code-block">
+            <div class="code-block-header">
+                <span class="code-lang">terminal</span>
+                <button class="copy-btn" aria-label="Copy code">copy</button>
+            </div>
+            <pre><code class="nohighlight">$ dawncast doctor --tts edge
+ PASS  python      3.12.4
+ PASS  git         2.45.1
+ PASS  gh          authenticated as nero408
+ PASS  ffmpeg      7.0.1
+ PASS  podcastfy   importable (0.4.3)
+ PASS  llm key     GEMINI_API_KEY set
+ PASS  tts key     edge needs no key
+
+ → briefing path: OK
+ → podcast path:  OK</code></pre>
+        </div>
+
+        <p>Every row that isn't green comes with a concrete fix suggestion — the env var to set, the package to install, the command to run. It exits <strong>0</strong> when the briefing path is functional (warnings are non-fatal) and <strong>1</strong> when something is actually broken. When the pipeline misfires at 6am, <code>dawncast doctor</code> is faster than reading the stack trace, and it's almost always the answer.</p>
+
+        <p>Building this was the most boring part of the project and easily the highest-leverage. Diagnostic tools earn their keep on day 30, not day 1.</p>
+
+        <h2>The morning ritual</h2>
+
+        <p>The end state, after a few weeks of using it:</p>
+
+        <div class="code-block">
+            <div class="code-block-header">
+                <span class="code-lang">cron</span>
+                <button class="copy-btn" aria-label="Copy code">copy</button>
+            </div>
+            <pre><code class="nohighlight"># Every weekday at 07:30, generate yesterday's recap.
+30 7 * * 1-5  cd ~/work/my-repo && \
+              /opt/homebrew/bin/dawncast podcast \
+                --since overnight \
+                --languages "English,German" \
+                -o ~/morning-briefings/$(date +\%Y-\%m-\%d)</code></pre>
+        </div>
+
+        <p>By the time I'm in the kitchen, today's folder has two MP3s in it. I AirDrop them to my phone, clip the leash on the dog, and walk. Most days the English one is enough; on days where the agent did something architecturally weird I'll listen to the German one too, because the slower cadence makes me re-process it.</p>
+
+        <p>What I didn't expect: hearing the work read out loud catches problems I'd have missed reading the diff. "The agent rewrote the retry logic" lands differently as audio than as a green-on-black <code>+47 -23</code>. Several times I've turned around mid-walk and gone back to revert something.</p>
+
+        <h2>What I learned building it</h2>
+
+        <p>A few things were surprisingly easy:</p>
+
+        <ul>
+            <li><strong>podcastfy is the right abstraction.</strong> I started thinking I'd need to wire up an LLM client and a TTS client and a dialogue prompt and a chunker. podcastfy already had all of that, with provider plug-ins for every LLM and TTS I cared about. The job shrank from "build a podcast pipeline" to "build a producer brief that podcastfy consumes well." That reframe saved weeks.</li>
+            <li><strong>Edge TTS removes the friction.</strong> The single biggest barrier to "try this tool" is "go get an API key first." Defaulting to a free, no-key, neural-voice TTS means the install-to-first-audio path is one command and zero accounts.</li>
+            <li><strong>The producer brief is just markdown.</strong> Not JSON, not a custom DSL — a markdown document with sections the LLM can read like a human. Easy to inspect, easy to diff, easy to <code>--dry-run</code> and check before paying for audio.</li>
+        </ul>
+
+        <p>A few were surprisingly hard:</p>
+
+        <ul>
+            <li><strong>Dependency resolution.</strong> <code>podcastfy 0.4.3</code> caret-pins <code>typer</code> to <code>^0.12.5</code>, which is incompatible with <code>click >= 8.2</code>. <code>uv tool install</code> ignores the <code>[tool.uv]</code> override in <code>pyproject.toml</code>, so the fix was a checked-in <code>constraints.txt</code> and a documented <code>--overrides</code> flag. Not glamorous, but if it's not solved the tool doesn't install. Half the README's troubleshooting section exists because of this one transitive pin.</li>
+            <li><strong>Time windows that match human intuition.</strong> "Overnight" doesn't mean "the last 24 hours." It means "yesterday at 18:00 → now." "Yesterday" means "yesterday 00:00 → now," not "the 24-hour block ending at midnight." Getting those right took a small expression parser and a lot of tests, but the alternative — making the user write ISO datetimes at 6am — was unacceptable.</li>
+            <li><strong>Base branch auto-detection.</strong> Feature mode needs to know what to diff against. Trying <code>main</code> → <code>master</code> → <code>develop</code> → <code>trunk</code> → <code>origin/main</code> → <code>origin/master</code> → <code>origin/HEAD</code> in that order covers every repo I've used in the last decade, but each one of those was a separate "oh right, this repo uses…" moment.</li>
+            <li><strong>Matching audio length to brief length.</strong> The <code>--length</code> preset (<code>short</code> / <code>medium</code> / <code>long</code>) has to drive <em>both</em> podcastfy's <code>longform</code> / <code>max_num_chunks</code> knobs <em>and</em> the duration hint inside the producer brief. If only one moves, the LLM writes a 12-minute script that the chunker truncates to 3 minutes mid-sentence. The fix is one line of code; finding the bug took an evening.</li>
+        </ul>
+
+        <h2>Install</h2>
+
+        <div class="code-block">
+            <div class="code-block-header">
+                <span class="code-lang">sh</span>
+                <button class="copy-btn" aria-label="Copy code">copy</button>
+            </div>
+            <pre><code class="language-sh"># Briefing only — no API keys, no network
+uv tool install dawncast
+
+# Briefing + audio (the --overrides flag is load-bearing, see below)
+uv tool install \
+  --overrides https://raw.githubusercontent.com/nero408/dawncast/main/constraints.txt \
+  'dawncast[podcast]'
+
+# Then point at a free LLM and you're done
+export GEMINI_API_KEY=…   # https://aistudio.google.com/apikey
+dawncast doctor</code></pre>
+        </div>
+
+        <p>Python 3.11–3.13. <code>pipx</code> and <code>pip</code> work too. <code>ffmpeg</code> is required for some TTS providers (audio merging) — <code>brew install ffmpeg</code> on macOS. Everything else <code>dawncast doctor</code> will tell you about.</p>
+
+        <h2>Where it's headed</h2>
+
+        <ul>
+            <li><strong>Per-author briefings.</strong> When more than one agent is touching the repo, "split the brief by author" is the next obvious knob.</li>
+            <li><strong>Episode chaining.</strong> Yesterday's briefing as input to today's — so the hosts can say "remember the auth rework we talked about Tuesday? It shipped."</li>
+            <li><strong>Non-git sources.</strong> Linear tickets, Slack threads, CI run summaries. The producer brief is just markdown; anything that can be markdown-ified can be folded in.</li>
+            <li><strong>A <code>dawncast init</code></strong> that writes an example <code>.dawncast/journal.md</code> template and a <code>CLAUDE.md</code> snippet teaching the agent to use it.</li>
+        </ul>
+
+        <p>If any of that sounds useful — or you have a use case I haven't thought of — <a href="https://github.com/nero408/dawncast/issues" target="_blank" rel="noopener noreferrer">open an issue</a>. PRs welcome.</p>
+
+        <h2>Try it</h2>
+
+        <div class="code-block">
+            <div class="code-block-header">
+                <span class="code-lang">sh</span>
+                <button class="copy-btn" aria-label="Copy code">copy</button>
+            </div>
+            <pre><code class="language-sh">uv tool install 'dawncast[podcast]'
+export GEMINI_API_KEY=…
+cd ~/your/repo
+dawncast podcast --since overnight --languages English</code></pre>
+        </div>
+
+        <p>Three minutes later you have an MP3. Put it on your phone, clip the leash on the dog, and find out what your agents did while you slept.</p>
+
+        <hr>
+
+        <div class="blog-post-end">
+            <span class="blog-author">— <a href="https://github.com/nero408" target="_blank" rel="noopener noreferrer">@nero408</a></span>
+            <a href="../index.html#writing" class="back-link">← All posts</a>
+        </div>
+
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Jan-Eric Gaidusch</p>
+            <div class="footer-links">
+                <a href="https://github.com/nero408" target="_blank" rel="noopener noreferrer" title="GitHub">⚡</a>
+                <a href="https://linkedin.com/in/jan-eric-gaidusch-626b98185" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
+                <a href="mailto:je.gaidusch@gmx.de" title="Email">📧</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.closest('.code-block').querySelector('code').textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    btn.textContent = 'copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'copy';
+                        btn.classList.remove('copied');
+                    }, 1500);
+                });
+            });
+        });
+
+        const toggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        }
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 100);
+        });
+    </script>
+</body>
+</html>
