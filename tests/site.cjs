@@ -4,10 +4,10 @@ const { createServer } = require('node:http');
 const { readFile, mkdtemp } = require('node:fs/promises');
 const { resolve, extname, join, sep } = require('node:path');
 const { tmpdir } = require('node:os');
-const { createHash } = require('node:crypto');
 
 const root = resolve(__dirname, '..');
-const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg' };
+const views = ['home', 'learner', 'builder', 'horse'];
+const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
@@ -27,118 +27,172 @@ async function accessibility(page) {
   });
   assert.deepEqual(violations, [], 'Accessibility violations: ' + JSON.stringify(violations));
 }
-async function loadImages(page) {
+async function ready(page) {
   await page.evaluate(async () => {
+    await document.fonts.ready;
     document.querySelectorAll('img').forEach(img => img.loading = 'eager');
     await Promise.all([...document.images].map(img => img.decode()));
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   });
 }
-async function canvasImage(page) { const data = await page.locator('#sculpture').evaluate(c => c.toDataURL()); return createHash('sha256').update(data).digest('hex'); }
+async function activeView(page, view, focus = true) {
+  await page.waitForFunction(v => document.body.dataset.view === v, view);
+  assert.equal(await page.locator('.carousel-panel:not([inert])').getAttribute('id'), view);
+  assert.equal(await page.locator('.carousel-panel[aria-hidden="false"]').count(), 1);
+  if (focus) assert.equal(await page.evaluate(() => document.activeElement.id), view + '-title');
+  assert.equal(await page.locator('.carousel-controls').isVisible(), view !== 'home');
+}
+async function fits(page, width) {
+  await ready(page);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width, 'Horizontal overflow at ' + width + 'px');
+  const dimensions = await page.evaluate(() => {
+    const stage = document.querySelector('.carousel-stage').getBoundingClientRect();
+    const panel = document.querySelector('.carousel-panel:not([inert])').getBoundingClientRect();
+    return { stage, panel };
+  });
+  assert.ok(Math.abs(dimensions.stage.height - dimensions.panel.height) < 2, 'Active face must not be vertically clipped');
+  assert.ok(Math.abs(dimensions.stage.x - dimensions.panel.x) < 2, 'Active face must line up with the stage after resizing');
+}
+async function swipe(page, dx, dy) {
+  await page.locator('.carousel-stage').evaluate((stage, { dx, dy }) => {
+    stage.dispatchEvent(new TouchEvent('touchstart', { touches: [new Touch({ identifier: 1, target: stage, clientX: 200, clientY: 200 })] }));
+    stage.dispatchEvent(new TouchEvent('touchend', { changedTouches: [new Touch({ identifier: 1, target: stage, clientX: 200 + dx, clientY: 200 + dy })] }));
+  }, { dx, dy });
+}
 
 async function browserChecks(type, name, origin, artifacts) {
   const browser = await type.launch({ headless: true });
   try {
-    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
+    const page = await browser.newPage({ viewport: { width: 1440, height: 950 }, reducedMotion: 'reduce' });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(origin, { waitUntil: 'networkidle' });
-    await loadImages(page);
-    assert.equal(await page.locator('#experience h3').first().innerText(), 'Staff Product Engineer');
-    assert.equal(await page.locator('#skills').count(), 0);
-    assert.equal(await page.locator('.art-pause').isVisible(), false);
-    const frozen = await canvasImage(page);
-    await page.waitForTimeout(250);
-    assert.equal(await canvasImage(page), frozen, 'Reduced motion stops the sculpture');
-    for (const shape of ['Knot', 'Bloom', 'Orbit']) {
-      const before = await canvasImage(page);
-      const button = page.getByRole('button', { name: shape, exact: true });
-      await button.click();
-      assert.equal(await button.getAttribute('aria-pressed'), 'true');
-      assert.notEqual(await canvasImage(page), before, shape + ' changes the sculpture');
-    }
+    await ready(page);
+    await activeView(page, 'home', false);
+    assert.equal(await page.locator('.avatar-choice').count(), 3);
+    assert.equal(await page.locator('.brand-star, #sculpture, canvas').count(), 0);
+    await fits(page, 1440);
     await accessibility(page);
-    await page.screenshot({ path: join(artifacts, name + '-desktop.png'), fullPage: true });
-    await page.locator('.career-past summary').first().click();
-    assert.equal(await page.locator('.career-past').first().getAttribute('open'), '');
+    await page.screenshot({ path: join(artifacts, name + '-home.png'), fullPage: true });
+    // A real avatar click must reveal only its face, focus its heading, and update the URL.
+    for (const view of views.slice(1)) {
+      await page.locator('.choice-' + view).click();
+      await activeView(page, view);
+      assert.equal(new URL(page.url()).hash, '#' + view);
+      await fits(page, 1440);
+      await accessibility(page);
+      await page.screenshot({ path: join(artifacts, name + '-' + view + '.png'), fullPage: true });
+      await page.getByRole('link', { name: 'All sides', exact: true }).click();
+      await activeView(page, 'home');
+    }
+    await page.locator('.choice-builder').click();
+    assert.match(await page.locator('.current-work').innerText(), /Staff Product Engineer/);
+    assert.match(await page.locator('.current-work').innerText(), /Product Deployment Group/);
+    assert.match(await page.locator('.role-description').innerText(), /lighthouse customers/);
+    await page.locator('.skip-link').focus();
+    await page.keyboard.press('Enter');
+    await activeView(page, 'builder');
+    // Hidden faces must stay out of the keyboard sequence.
+    await page.keyboard.press('Tab');
+    assert.equal(await page.evaluate(() => document.activeElement.closest('.carousel-panel').id), 'builder');
+    await page.keyboard.press('Escape');
+    await activeView(page, 'home');
+    await page.keyboard.press('ArrowLeft');
+    await activeView(page, 'horse');
+    await page.getByRole('button', { name: 'Next side', exact: true }).click();
+    await activeView(page, 'home');
+    await page.keyboard.press('ArrowRight');
+    await activeView(page, 'learner');
+    await page.getByRole('button', { name: 'Previous side', exact: true }).click();
+    await activeView(page, 'home');
 
-    // Every local asset and destination must exist, including the social card.
-    const localFiles = await page.evaluate(() => [...new Set([...document.querySelectorAll('[src], a[href], meta[property="og:image"]')].map(el => el.getAttribute('src') || el.getAttribute('href') || el.getAttribute('content')).filter(url => url && !url.startsWith('#') && !/^(https?:|mailto:)/.test(url)))]);
-    localFiles.push('/assets/img/social-preview.png');
-    for (const file of localFiles) assert.equal((await page.request.get(new URL(file, origin).href)).status(), 200, file);
+    // Browser navigation restores the selected face, including historical section URLs.
+    await page.goto(origin);
+    await page.locator('.choice-builder').click();
+    await page.getByRole('link', { name: 'Learner', exact: true }).click();
+    await page.goBack();
+    await activeView(page, 'builder');
+    await page.goForward();
+    await activeView(page, 'learner');
+    for (const [hash, view] of [['horse', 'horse'], ['writing', 'builder'], ['experience', 'builder'], ['education', 'learner'], ['personal', 'horse']]) {
+      await page.goto(origin + '/#' + hash);
+      await activeView(page, view, false);
+      await fits(page, 1440);
+      assert.equal(await page.evaluate(() => window.scrollY), 0, 'Deep links keep the header visible');
+    }
+
+    // Every local asset and article destination must be available.
+    const files = await page.evaluate(() => [...new Set([...document.querySelectorAll('[src], a[href]')].map(el => el.getAttribute('src') || el.getAttribute('href')).filter(url => url && !url.startsWith('#') && !/^(https?:|mailto:)/.test(url)))]);
+    files.push('/assets/img/social-preview-v2.png');
+    for (const file of files) assert.equal((await page.request.get(new URL(file, origin).href)).status(), 200, file);
+
+    // Resize the same live carousel across breakpoints, then check every face.
+    for (const width of [320, 390, 768, 1024]) {
+      await page.setViewportSize({ width, height: 844 });
+      for (const view of views) {
+        await page.goto(origin + '/#' + view, { waitUntil: 'networkidle' });
+        await fits(page, width);
+        if (width === 390) {
+          await accessibility(page);
+          await page.screenshot({ path: join(artifacts, name + '-mobile-' + view + '.png'), fullPage: true });
+        }
+      }
+    }
+    // Also resize without reloading, to catch stale 3D face depth.
+    await page.setViewportSize({ width: 390, height: 844 });
+    await fits(page, 390);
+    await page.keyboard.press('Escape');
+    await fits(page, 390);
+    // A long face must return to the top when navigating away from its bottom.
+    await page.locator('.choice-learner').click();
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.getByRole('link', { name: 'All sides', exact: true }).click();
+    assert.equal(await page.evaluate(() => window.scrollY), 0);
+
+    if (name === 'chromium') {
+      await swipe(page, 10, -150);
+      await activeView(page, 'home');
+      await swipe(page, -120, 10);
+      await activeView(page, 'learner');
+      await swipe(page, 120, 10);
+      await activeView(page, 'home');
+    }
+    // Motion is user-driven, and OS preferences remove rotation transitions live.
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.locator('.choice-learner').click();
+    assert.notEqual(await page.locator('.carousel-rotor').evaluate(el => getComputedStyle(el).transitionDuration), '0s');
+    await page.waitForTimeout(1000);
+    const transform = await page.locator('.carousel-rotor').evaluate(el => getComputedStyle(el).transform);
+    await page.waitForTimeout(300);
+    assert.equal(await page.locator('.carousel-rotor').evaluate(el => getComputedStyle(el).transform), transform, 'No autoplay');
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    assert.equal(await page.locator('.carousel-rotor').evaluate(el => getComputedStyle(el).transitionDuration), '0s');
+    await page.keyboard.press('ArrowRight');
+    await activeView(page, 'builder');
+    await fits(page, 390);
 
     for (const slug of ['dawncast-morning-briefing', 'introducing-mdmux']) {
       await page.goto(origin + '/blog/' + slug + '.html', { waitUntil: 'networkidle' });
       assert.equal(await page.locator('h1').count(), 1);
+      assert.equal(await page.locator('.brand-star, .menu-toggle').count(), 0);
       await accessibility(page);
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 390, 'Article overflow');
       const code = page.locator('pre').first();
       await code.focus();
       assert.equal(await code.evaluate(el => el === document.activeElement), true);
       await page.screenshot({ path: join(artifacts, name + '-' + slug + '.png') });
+      await page.locator('.back-link').first().click();
+      await activeView(page, 'builder', false);
     }
-    for (const width of [320, 390, 768, 1024]) {
-      const responsive = await browser.newPage({ viewport: { width, height: 844 }, reducedMotion: 'reduce' });
-      responsive.on('pageerror', error => errors.push(error.message));
-      await responsive.goto(origin, { waitUntil: 'networkidle' });
-      await loadImages(responsive);
-      assert.equal(await responsive.evaluate(() => document.documentElement.scrollWidth), width, 'Horizontal overflow at ' + width + 'px');
-      if (width < 761) {
-        const menu = responsive.getByRole('button', { name: 'Menu' });
-        await menu.click();
-        assert.equal(await menu.getAttribute('aria-expanded'), 'true');
-        await responsive.keyboard.press('Escape');
-        assert.equal(await menu.getAttribute('aria-expanded'), 'false');
-        assert.equal(await menu.evaluate(el => el === document.activeElement), true);
-        await menu.click();
-        await responsive.getByRole('link', { name: 'Off-screen' }).click();
-        assert.equal(await menu.getAttribute('aria-expanded'), 'false');
-        assert.equal(new URL(responsive.url()).hash, '#personal');
-      }
-      if (width === 390) {
-        await responsive.goto(origin, { waitUntil: 'networkidle' });
-        await loadImages(responsive);
-        await accessibility(responsive);
-        await responsive.screenshot({ path: join(artifacts, name + '-mobile.png'), fullPage: true });
-      }
-      await responsive.close();
-    }
-    await page.bringToFront();
-    await page.goto(origin, { waitUntil: 'networkidle' });
-    await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await page.waitForTimeout(400);
-    const moving = await canvasImage(page);
-    await page.waitForTimeout(250);
-    assert.notEqual(await canvasImage(page), moving, 'The sculpture animates by default');
-    await page.locator('.art-pause').click();
-    assert.equal(await page.locator('.art-pause').getAttribute('aria-pressed'), 'true');
-    assert.equal(await page.locator('.site-footer .motion-toggle').getAttribute('aria-pressed'), 'true');
-    const paused = await canvasImage(page);
-    await page.waitForTimeout(250);
-    assert.equal(await canvasImage(page), paused, 'Manual pause stops motion');
-    assert.equal(await page.locator('.ticker-track').evaluate(el => getComputedStyle(el).animationPlayState), 'paused');
-    assert.equal(await page.locator('.project').last().evaluate(el => getComputedStyle(el).opacity), '1');
-    assert.equal(await page.evaluate(() => ScrollTrigger.getAll().length), 0, 'Pausing removes scroll animations');
-    await accessibility(page);
-    await page.locator('.art-pause').click();
-    assert.equal(await page.locator('.art-pause').getAttribute('aria-pressed'), 'false');
-    await page.waitForTimeout(250);
-    const resumed = await canvasImage(page);
-    await page.waitForTimeout(250);
-    assert.notEqual(await canvasImage(page), resumed, 'Motion resumes');
-    // Changing the OS preference while the site is open must also stop motion.
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.waitForFunction(() => document.body.classList.contains('motion-paused') && document.querySelector('.art-pause').hidden && ScrollTrigger.getAll().length === 0).catch(async error => { console.log('Motion state:', await page.evaluate(() => ({paused:document.body.className,hidden:document.querySelector('.art-pause').hidden,triggers:ScrollTrigger.getAll().length,pref:matchMedia('(prefers-reduced-motion: reduce)').matches}))); throw error; });
-    const systemPaused = await canvasImage(page);
-    await page.waitForTimeout(250);
-    assert.equal(await canvasImage(page), systemPaused);
     assert.deepEqual(errors, [], 'Browser runtime errors');
-    console.log(name + ': content, controls, keyboard, responsive layout, motion, assets, and accessibility passed');
+    console.log(name + ': carousel, keyboard, touch, history, motion, responsive layout, articles, assets, and accessibility passed');
   } finally { await browser.close(); }
 }
 
 (async () => {
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const origin = 'http://127.0.0.1:' + server.address().port;
-  const artifacts = await mkdtemp(join(tmpdir(), 'jani-browser-'));
+  const artifacts = await mkdtemp(join(tmpdir(), 'jani-carousel-'));
   try {
     await browserChecks(chromium, 'chromium', origin, artifacts);
     await browserChecks(firefox, 'firefox', origin, artifacts);
@@ -146,20 +200,17 @@ async function browserChecks(type, name, origin, artifacts) {
     try {
       const nojs = await browser.newPage({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
       await nojs.goto(origin);
-      assert.equal(await nojs.locator('#experience h3').first().innerText(), 'Staff Product Engineer');
-      assert.equal(await nojs.locator('.sculpture-fallback').isVisible(), true);
-      assert.equal(await nojs.locator('.art-controls').isVisible(), false);
-      assert.equal(await nojs.locator('.site-nav').isVisible(), true);
-      const missing = await nojs.evaluate(() => [...document.querySelectorAll('a[href^="#"]')].map(a => a.getAttribute('href')).filter(href => !document.querySelector(href)));
-      assert.deepEqual(missing, [], 'Broken section links');
-      const fallback = await browser.newPage({ reducedMotion: 'reduce' });
-      await fallback.route('**/assets/vendor/gsap/**', route => route.abort());
-      const fallbackErrors = [];
-      fallback.on('pageerror', error => fallbackErrors.push(error.message));
+      for (const view of views) assert.equal(await nojs.locator('#' + view).isVisible(), true);
+      assert.equal(await nojs.locator('.carousel-controls').isVisible(), false);
+      await nojs.locator('.choice-builder').click();
+      assert.equal(new URL(nojs.url()).hash, '#builder');
+      assert.deepEqual(await nojs.evaluate(() => [...document.querySelectorAll('a[href^="#"]')].map(a => a.getAttribute('href')).filter(href => !document.querySelector(href))), [], 'Broken section links');
+      const fallback = await browser.newPage({ viewport: { width: 390, height: 844 } });
+      await fallback.route('**/script.js', route => route.abort());
       await fallback.goto(origin);
-      await fallback.getByRole('button', { name: 'Bloom', exact: true }).click();
-      assert.deepEqual(fallbackErrors, []);
-      console.log('Fallbacks: no-JavaScript navigation and content, local anchors, and unavailable animation library passed');
+      for (const view of views) assert.equal(await fallback.locator('#' + view).isVisible(), true);
+      assert.equal(await fallback.evaluate(() => document.documentElement.scrollWidth), 390);
+      console.log('Fallbacks: no-JavaScript and failed-script content and navigation passed');
     } finally { await browser.close(); }
     console.log('Screenshots: ' + artifacts);
   } finally { server.close(); }

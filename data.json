@@ -49,8 +49,9 @@
         "location": "Berlin, Germany (Remote)",
         "period": "May 2023 - Present",
         "current": true,
-        "summary": "Parloa is a conversational AI company that provides a platform to manage AI agents for customer service - enabling enterprises to automate and improve customer interactions across voice, chat, email etc.",
+        "summary": "Staff Product Engineer in the Product Deployment Group. Prototyping emerging technologies, testing new models, and validating new product features on a fast track with lighthouse customers before handing them over to Product & Engineering to generalize.",
         "achievements": [
+          "Prototype emerging technologies and validate product features with lighthouse customers in the Product Deployment Group",
           "🤖 Designed and implemented a Retrieval-Augmented Generation (RAG) product powering AI agents in customer service use cases",
           "🏗️ Built the foundation of the Agent Management Platform, enabling scalable creation and management of AI agents",
           "👥 Contributed to growing the engineering team by supporting interviews, onboarding and mentoring",
@@ -147,10 +148,10 @@
   },
   "metadata": {
     "theme": {
-      "paper": "#f3f0e7",
-      "ink": "#252923",
-      "accent": "#d4ee64",
-      "orange": "#c54b2d"
+      "background": "#15171b",
+      "surface": "#1c1f25",
+      "text": "#edf0f4",
+      "accent": "#e8bd88"
     },
     "analytics": {
       "googleAnalyticsId": "UA-139255540-1"
