@@ -8,36 +8,25 @@
     <title>mdmux: a standalone markdown TUI (with optional cmux integration) | Jan-Eric Gaidusch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="blog.css">
-    <link rel="icon" href="/assets/img/avatar-icon.png">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-brand">
-                <span class="nav-logo">JG</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html#about">about</a></li>
-                <li><a href="../index.html#skills">skills</a></li>
-                <li><a href="../index.html#experience">experience</a></li>
-                <li><a href="../index.html#education">education</a></li>
-                <li><a href="../index.html#personal">personal</a></li>
-                <li><a href="../index.html#writing">writing</a></li>
-                <li><a href="../index.html#contact">contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
+<body class="blog-page">
+    <a class="skip-link" href="#article">Skip to article</a>
+    <header class="site-header" id="navbar">
+        <a class="wordmark" href="../index.html" aria-label="Jani, back to home">jani<span class="brand-star" aria-hidden="true">✳</span></a>
+        <a class="header-role" href="../index.html#experience"><span class="status-dot" aria-hidden="true"></span>Staff Product Engineer @ Parloa</a>
+        <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu <span aria-hidden="true">+</span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+            <a href="../index.html#work">Things I make</a>
+            <a href="../index.html#writing">Writing</a>
+            <a class="nav-contact" href="../index.html#contact">Say hello <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+    <main id="article">
     <!-- Post Header -->
     <header class="blog-hero">
         <div class="blog-hero-inner">
@@ -70,7 +59,7 @@
                 <span class="code-lang">terminal</span>
                 <button class="copy-btn" aria-label="Copy code">copy</button>
             </div>
-            <pre><code class="nohighlight"> mdmux  /home/me/notes
+            <pre tabindex="0"><code class="nohighlight"> mdmux  /home/me/notes
 ┌ Files (12) ────────────────────────┬────────────────────────────────────────┐
 │  📝 README.md                      │  # endpoints                           │
 │▾ 📁 docs                           │                                        │
@@ -133,7 +122,7 @@
                 <span class="code-lang">sh</span>
                 <button class="copy-btn" aria-label="Copy code">copy</button>
             </div>
-            <pre><code class="language-sh">brew install nero408/tap/mdmux
+            <pre tabindex="0"><code class="language-sh">brew install nero408/tap/mdmux
 # or
 cargo install mdmux</code></pre>
         </div>
@@ -160,7 +149,7 @@ cargo install mdmux</code></pre>
                 <span class="code-lang">sh</span>
                 <button class="copy-btn" aria-label="Copy code">copy</button>
             </div>
-            <pre><code class="language-sh">brew install nero408/tap/mdmux
+            <pre tabindex="0"><code class="language-sh">brew install nero408/tap/mdmux
 cd ~/notes
 mdmux</code></pre>
         </div>
@@ -176,45 +165,16 @@ mdmux</code></pre>
 
     </article>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Jan-Eric Gaidusch</p>
-            <div class="footer-links">
-                <a href="https://github.com/nero408" target="_blank" rel="noopener noreferrer" title="GitHub">⚡</a>
-                <a href="https://linkedin.com/in/jan-eric-gaidusch-626b98185" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
-                <a href="mailto:je.gaidusch@gmx.de" title="Email">📧</a>
-            </div>
+    </main>
+    <footer class="site-footer">
+        <span>© <span id="currentYear">2026</span> Jan-Eric Gaidusch</span>
+        <div class="contact-links">
+            <a href="https://github.com/nero408" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/jan-eric-gaidusch-626b98185/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="mailto:je.gaidusch@gmx.de">Say hello ↗</a>
         </div>
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>
-        hljs.highlightAll();
-
-        document.querySelectorAll('.copy-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const code = btn.closest('.code-block').querySelector('code').textContent;
-                navigator.clipboard.writeText(code).then(() => {
-                    btn.textContent = 'copied!';
-                    btn.classList.add('copied');
-                    setTimeout(() => {
-                        btn.textContent = 'copy';
-                        btn.classList.remove('copied');
-                    }, 1500);
-                });
-            });
-        });
-
-        const toggle = document.getElementById('mobileMenuToggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (toggle && navLinks) {
-            toggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-        }
-
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 100);
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+    <script src="../script.js" defer></script>
 </body>
 </html>

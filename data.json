@@ -1,12 +1,12 @@
 {
   "personal": {
     "name": "Jan-Eric Gaidusch",
-    "title": "Passionate Product Engineer, Tinkerer",
-    "subtitle": "Software Engineer | AI Enthusiast",
-    "tagline": "Senior Software Engineer | 8+ Years Experience | AI & Backend Specialist",
+    "title": "Staff Product Engineer at Parloa",
+    "subtitle": "Product engineer. Perpetual tinkerer.",
+    "tagline": "Curiosity, made real.",
     "email": "je.gaidusch@gmx.de",
     "location": "Berlin, Germany",
-    "bio": "I'm a passionate Senior Software Engineer with over 8 years of hands-on experience in software development and IT operations across multiple industries. Currently, I'm working on conversational AI at Parloa GmbH in Berlin, where I design and implement AI solutions for customer service.",
+    "bio": "I'm Jan-Eric Gaidusch. Jani, for short. A Staff Product Engineer at Parloa who enjoys turning interesting problems into useful products, and a tinkerer with a life beyond the screen.",
     "avatar": "/assets/img/avatar-icon.png",
     "domain": "jani.gaidus.ch"
   },
@@ -20,28 +20,6 @@
   },
   "about": {
     "intro": "Throughout my career, I've had the privilege of working with innovative companies in the AI and technology space:",
-    "expertise": [
-      {
-        "icon": "🤖",
-        "title": "AI & Machine Learning",
-        "description": "Working with RAG (Retrieval-Augmented Generation) systems, Large Language Models, and conversational AI platforms for enterprise customer service"
-      },
-      {
-        "icon": "⚙️",
-        "title": "Backend Architecture",
-        "description": "Designing scalable microservices, message-driven systems, and real-time communication platforms using modern frameworks like NestJS and FastAPI"
-      },
-      {
-        "icon": "☁️",
-        "title": "Cloud & DevOps",
-        "description": "Orchestrating Kubernetes clusters, automating infrastructure with Terraform, and optimizing CI/CD pipelines for efficient software delivery"
-      },
-      {
-        "icon": "👥",
-        "title": "Team Collaboration",
-        "description": "Contributing to team growth, supporting fellow engineers, participating in architectural discussions, and promoting continuous learning"
-      }
-    ],
     "interests": [
       {
         "icon": "🐴",
@@ -61,184 +39,11 @@
     ],
     "connectMessage": "I'm always interested in discussing new technologies, collaboration opportunities, or just connecting with fellow tech enthusiasts. Feel free to reach out through any of my social channels!"
   },
-  "skills": {
-    "intro": "Throughout my 8+ years in software engineering, I've gained solid experience across a wide range of technologies, from AI/ML systems to cloud infrastructure. Here's my current technology stack:",
-    "categories": [
-      {
-        "name": "Programming Languages",
-        "icon": "💻",
-        "skills": [
-          {
-            "name": "TypeScript",
-            "level": "Proficient",
-            "proficiency": 90,
-            "description": "Primary language for backend and frontend development. Building scalable enterprise applications with type safety.",
-            "featured": true
-          },
-          {
-            "name": "Python",
-            "level": "Advanced",
-            "proficiency": 85,
-            "description": "AI/ML development, data processing, and automation. Building intelligent systems and APIs.",
-            "featured": true
-          },
-          {
-            "name": "Java",
-            "level": "Advanced",
-            "proficiency": 75,
-            "description": "Enterprise applications and backend systems. Solid foundation in OOP and design patterns.",
-            "featured": false
-          }
-        ]
-      },
-      {
-        "name": "Frameworks & Libraries",
-        "icon": "🏗️",
-        "skills": [
-          {
-            "name": "NestJS",
-            "level": "Proficient",
-            "proficiency": 90,
-            "description": "Building scalable, enterprise-grade backend applications with TypeScript and dependency injection.",
-            "featured": true
-          },
-          {
-            "name": "FastAPI",
-            "level": "Proficient",
-            "proficiency": 85,
-            "description": "High-performance Python APIs for AI/ML services with automatic API documentation.",
-            "featured": true
-          },
-          {
-            "name": "React",
-            "level": "Advanced",
-            "proficiency": 75,
-            "description": "Modern frontend applications with hooks, context, and component-based architecture.",
-            "featured": false
-          },
-          {
-            "name": "RxJS",
-            "level": "Advanced",
-            "proficiency": 75,
-            "description": "Reactive programming and event-driven architectures for complex async workflows.",
-            "featured": false
-          }
-        ]
-      },
-      {
-        "name": "AI & Machine Learning",
-        "icon": "🧠",
-        "highlight": true,
-        "skills": [
-          {
-            "name": "RAG Systems",
-            "level": "Proficient",
-            "proficiency": 85,
-            "description": "Retrieval-Augmented Generation architecture for AI applications with vector databases and semantic search.",
-            "featured": true
-          },
-          {
-            "name": "Large Language Models",
-            "level": "Proficient",
-            "proficiency": 85,
-            "description": "Building and integrating LLM-powered solutions with prompt engineering and fine-tuning.",
-            "featured": true
-          },
-          {
-            "name": "NLU Engines",
-            "level": "Proficient",
-            "proficiency": 80,
-            "description": "Natural Language Understanding systems for intent recognition and entity extraction.",
-            "featured": false
-          },
-          {
-            "name": "Speech Technologies",
-            "level": "Advanced",
-            "proficiency": 75,
-            "description": "STT, TTS, and voice processing pipelines for conversational AI applications.",
-            "featured": false
-          }
-        ]
-      },
-      {
-        "name": "DevOps & Cloud",
-        "icon": "☸️",
-        "skills": [
-          {
-            "name": "Kubernetes",
-            "level": "Proficient",
-            "proficiency": 85,
-            "description": "Container orchestration and cloud-native deployments with custom resources and operators.",
-            "featured": true
-          },
-          {
-            "name": "Helm Charts",
-            "level": "Proficient",
-            "proficiency": 85,
-            "description": "Kubernetes package management and deployment automation with templating and versioning.",
-            "featured": true
-          },
-          {
-            "name": "Terraform",
-            "level": "Advanced",
-            "proficiency": 75,
-            "description": "Infrastructure as Code for cloud automation and reproducible environments.",
-            "featured": false
-          },
-          {
-            "name": "Docker",
-            "level": "Proficient",
-            "proficiency": 85,
-            "description": "Containerization and microservices with multi-stage builds and optimization.",
-            "featured": false
-          }
-        ]
-      },
-      {
-        "name": "Cloud Platforms",
-        "icon": "☁️",
-        "skills": [
-          {
-            "name": "Microsoft Azure",
-            "level": "Proficient",
-            "proficiency": 85,
-            "description": "Azure services, AKS, and cloud architecture with extensive production experience.",
-            "featured": false
-          },
-          {
-            "name": "Amazon Web Services",
-            "level": "Advanced",
-            "proficiency": 75,
-            "description": "AWS infrastructure and cloud services including EC2, S3, Lambda, and ECS.",
-            "featured": false
-          }
-        ]
-      }
-    ],
-    "additionalTechnologies": [
-      "NATS",
-      "WebSockets",
-      "SIP",
-      "REST APIs",
-      "GraphQL",
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "GitHub Actions",
-      "GitLab CI",
-      "Angular",
-      "Git",
-      "Jira",
-      "Asana",
-      "Cursor",
-      "VSCode"
-    ]
-  },
   "experience": {
     "intro": "Throughout my career, I've had the privilege of working with innovative companies across multiple industries, from conversational AI to industrial 3D printing. Here's my professional journey:",
     "positions": [
       {
-        "title": "Senior Product Engineer",
+        "title": "Staff Product Engineer",
         "company": "Parloa GmbH",
         "companyUrl": "https://parloa.com",
         "location": "Berlin, Germany (Remote)",
@@ -331,73 +136,7 @@
           }
         ]
       }
-    ],
-    "continuousLearning": {
-      "intro": "Beyond formal education, I'm committed to continuous learning and staying current with emerging technologies. Here are some areas where I've developed expertise through professional experience and self-study:",
-      "areas": [
-        {
-          "icon": "🤖",
-          "title": "Artificial Intelligence & ML",
-          "items": [
-            "RAG (Retrieval-Augmented Generation) Systems",
-            "Large Language Models Integration",
-            "Natural Language Understanding",
-            "Speech Technologies (STT, TTS)"
-          ]
-        },
-        {
-          "icon": "☁️",
-          "title": "Cloud & Infrastructure",
-          "items": [
-            "Kubernetes & Container Orchestration",
-            "Infrastructure as Code (Terraform)",
-            "Cloud Platforms (Azure, AWS)",
-            "CI/CD Pipeline Automation"
-          ]
-        },
-        {
-          "icon": "⚙️",
-          "title": "Software Architecture",
-          "items": [
-            "Microservices Architecture",
-            "Message-Driven Systems",
-            "Real-time Communication",
-            "Scalable Backend Design"
-          ]
-        },
-        {
-          "icon": "👨‍💻",
-          "title": "Modern Development",
-          "items": [
-            "TypeScript & Advanced JavaScript",
-            "Python for AI/ML Applications",
-            "NestJS & FastAPI Frameworks",
-            "React & Modern Frontend"
-          ]
-        }
-      ]
-    },
-    "professionalDevelopment": {
-      "description": "I believe in learning by doing. Throughout my career, I've gained practical expertise through:",
-      "items": [
-        {
-          "icon": "💼",
-          "text": "8+ years of hands-on software engineering experience"
-        },
-        {
-          "icon": "🎯",
-          "text": "Leadership roles including Head of Engineering positions"
-        },
-        {
-          "icon": "🏗️",
-          "text": "Architecting and building production systems serving enterprise customers"
-        },
-        {
-          "icon": "👥",
-          "text": "Mentoring engineers and growing technical teams"
-        }
-      ]
-    }
+    ]
   },
   "volunteer": {
     "title": "Managing Committee",
@@ -408,12 +147,10 @@
   },
   "metadata": {
     "theme": {
-      "primaryColor": "#ea580c",
-      "primaryColorDark": "#c2410c",
-      "navbarColor": "#F5F5F5",
-      "navbarTextColor": "#292524",
-      "linkColor": "#ea580c",
-      "hoverColor": "#c2410c"
+      "paper": "#f3f0e7",
+      "ink": "#252923",
+      "accent": "#d4ee64",
+      "orange": "#c54b2d"
     },
     "analytics": {
       "googleAnalyticsId": "UA-139255540-1"

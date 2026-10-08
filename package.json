@@ -1,0 +1,15 @@
+{
+  "name": "jani-personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A buildless personal site. Node dependencies are for browser checks only.",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "check": "node --check script.js && node --check tests/site.cjs",
+    "test": "node tests/site.cjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0",
+    "playwright": "1.64.0"
+  }
+}

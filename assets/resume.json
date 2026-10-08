@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Jan-Eric Gaidusch",
-    "label": "Software Engineer",
+    "label": "Staff Product Engineer",
     "email": "je.gaidusch@gmx.de",
     "phone": "+49 176 24652803",
     "picture": "file://~/coding/github/cv/Passbild.jpg",
@@ -16,7 +16,7 @@
   "work": [
     {
       "name": "Parloa GmbH",
-      "position": "Senior Product Engineer",
+      "position": "Staff Product Engineer",
       "location": "Berlin, Germany (Remote)",
       "url": "https://parloa.com",
       "startDate": "2023-05-01",

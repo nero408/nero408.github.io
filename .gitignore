@@ -13,3 +13,7 @@ ehthumbs.db
 # Temporary files
 *.log
 *.tmp
+
+# Browser checks (the website itself has no build step)
+node_modules/
+test-results/
